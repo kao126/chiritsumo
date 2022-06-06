@@ -1,24 +1,35 @@
-# README
+# サイト名
+### CHIRITSUMO（ちりつも）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+日頃の些細なSNS投稿を社会貢献への取り組みとして投稿できるコミュニティサイト
 
-Things you may want to cover:
+### テーマを選んだ理由
+近年では、SNS上のあるひとつの投稿から波及して、全体に多大な影響を与えるような出来事をしばしばみかけるようになった。
+そこで、日々の投稿を通じて「SDGs」など世界的な取り組みを個人単位で発信することで、人々の社会への帰属意識を高め、
+日常生活レベルでの取り組みを促進することができるのではないかと考え、このテーマにしました。
 
-* Ruby version
+### ターゲットユーザ
+- 少しでも社会に役立てることをしたいと考えている人
+- SDGsの課題に対して、社会的責任者として積極的に取り組んでいきたい企業
 
-* System dependencies
+### 主な利用シーン
+- SDGs内の17目標達成のために取り組んだことを投稿できる
+- コミュニティ全体でどのくらい対応しているのかグラフで可視化できる
 
-* Configuration
+## 設計書
+<...>
 
-* Database creation
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+<!--- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。-->
+<!--- 使用しない場合は、使用素材の項目をREADMEから削除してください。-->
+- 国際連合広報センター
+  https://www.unic.or.jp/activities/economic_social_development/sustainable_development/2030agenda/sdgs_logo/
