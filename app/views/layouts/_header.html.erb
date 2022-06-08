@@ -1,0 +1,23 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <%= link_to "Logo", root_path, class: "navbar-brand col-md-4" %>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <%= form_with method: :get, class: "col-5" do |f| %>
+        <%= f.text_field :content , placeholder:"\uf002 検索", class: "fa_icon text-light" %>
+      <% end %>
+      <% if customer_signed_in? %>
+        <%= render "layouts/customer_header" %>
+      <% elsif admin_signed_in? %>
+        <%= render "layouts/admin_header" %>
+      <% else %>
+        <%= render "layouts/guest_header" %>
+      <% end %>
+    </div>
+  </nav>
+</div>

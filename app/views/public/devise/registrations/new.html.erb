@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 
-<%= form_with model: @customer, url: new_customer_registration_path do |f| %>
+<%= form_with model: @customer, url: customer_registration_path, method: :post do |f| %>
   <%= render "public/devise/shared/error_messages", resource: resource %>
 
   <div class="field">
@@ -26,4 +26,4 @@
   </div>
 <% end %>
 
-<%= render "public/shared/links" %>
+<%= render "public/devise/shared/links" %>
