@@ -15,11 +15,17 @@ Rails.application.routes.draw do
     sessions: "admin/devise/sessions",
     passwords: 'admin/devise/passwords'
   }
+
   scope module: :public do
     root to: 'homes#top'
     get 'homes/about'
+    get '/customers/:id/my_page' => "customers#show"
+    get '/customers/unsubscribe' => 'customers#unsubscribe'
+    patch '/customers/withdraw' => 'customers#withdraw'
 
-    resources :posts, only: [:show, :create, :edit, :update, :destroy]
+    resources :posts, except: [:new]
+    resources :customers, only: [:create, :edit, :update]
+
 
   end
 end
