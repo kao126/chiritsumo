@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_114445) do
     t.string "first_name"
     t.string "last_name_kana"
     t.string "first_name_kana"
+    t.string "username"
     t.string "postal_code"
     t.string "prefecture_code"
     t.string "address_city"
