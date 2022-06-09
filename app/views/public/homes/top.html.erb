@@ -1,6 +1,17 @@
 <h1>Public::Homes#top</h1>
 <p>Find me in app/views/public/homes/top.html.erb</p>
+
+<div class="container">
+
 <% @posts.each do |post| %>
-<%= @customer.name %>
-<%= post.caption %>
+  <%= link_to customer_mypage_path(post.customer) do %>
+    <div class="col-10 mb-3 mx-auto">
+      <%= post.customer.username %>
+      <%= image_tag post.get_image(470, 580) %>
+      <div>
+        <p><%= post.caption %></p>
+      </div>
+    </div>
+  <% end %>
 <% end %>
+</div>

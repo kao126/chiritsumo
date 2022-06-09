@@ -1,17 +1,22 @@
-<ul class="navbar-nav col-7 ml-5">
+<ul class="navbar-nav col-8 ml-5">
   <li class="mx-1">
     <%= link_to root_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-    <i class="fas fa-home"></i> Home
+      <i class="fas fa-home"></i> Home
     <% end %>
   </li>
   <li class="mx-1">
     <%= link_to homes_about_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-    <i class="fas fa-link"></i> About
+      <i class="fas fa-link"></i> About
     <% end %>
   </li>
   <li class="mx-1">
     <%= link_to root_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-    <i class="fas fa-store-alt"></i> Shop
+      <i class="fas fa-store-alt"></i> Shop
+    <% end %>
+  </li>
+  <li class="mx-1">
+    <%= link_to new_post_path, class:"nav-link bg-light text-secondary" do %>
+      <i class="fas fa-plus-circle"></i> New Post
     <% end %>
   </li>
   <li class="dropdown mx-1">

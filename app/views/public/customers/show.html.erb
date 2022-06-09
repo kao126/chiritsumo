@@ -1,4 +1,21 @@
 <h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<div class="container">
 
-<%= render "public/posts/form", post: @post %>
+  <!--新規写真投稿フォームへのリンク-->
+    <div class="row">
+      <div class="col">
+        <%= link_to "新規投稿", new_post_path %>
+      </div>
+    </div>
+
+  <!--投稿写真一覧-->
+  <div class="row row-cols-3 mx-auto px-5">
+      <% @posts.each do |post| %>
+        <%= link_to post_path(post) do %>
+        <div class="col text-center mb-4">
+            <%= image_tag post.get_image(300, 300) %>
+        </div>
+        <% end %>
+      <% end %>
+  </div>
+</div>
