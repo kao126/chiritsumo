@@ -21,11 +21,15 @@ class Public::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
-    redirect_to customer_mypage_path
+    @customer = @post.customer
+    redirect_to customer_profile_path(@customer.username)
   end
 
   def destroy
     @post = Post.find(params[:id])
+    @post.destroy
+    @customer = @post.customer
+    redirect_to customer_profile_path(@customer.username)
   end
 
   private

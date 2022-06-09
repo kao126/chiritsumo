@@ -1,0 +1,21 @@
+<div class="col text-center mx-5">
+  <h4>退会手続きの前にご確認ください</h4>
+  <div class="mt-5">
+    <p>
+      退会処理を行うと、登録済みのプロフィール情報や</br>
+      これまでの投稿内容など、すべての情報が削除されます。</br>
+      退会を実行する場合は、「上記事項に同意する」に</br>
+      チェックを入れて「退会する」ボタンをクリックしてください。
+    </p>
+  </div>
+  <div class="row mt-5">
+    <div class="col text-right">
+      <%= link_to "退会しない", customer_profile_path(customer.username), class:"btn btn-primary" %>
+    </div>
+    <div class="col text-left">
+      <%= form_with model: customer, url: customer_withdraw_path(customer.username), method: :patch do |f| %>
+        <%= f.submit "退会する", class:"btn btn-danger" %>
+      <% end %>
+    </div>
+  </div>
+</div>

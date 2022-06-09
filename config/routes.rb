@@ -19,13 +19,10 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'homes/about'
-    get '/customers/:id/my_page' => "customers#show", as: "customer_mypage"
-    get '/customers/unsubscribe' => 'customers#unsubscribe'
-    patch '/customers/withdraw' => 'customers#withdraw'
+    get '/:username' => "customers#show", as: "customer_profile"
+    patch '/:username/withdraw' => 'customers#withdraw', as: "customer_withdraw"
 
     resources :posts, except: [:index]
-    resources :customers, only: [:create, :edit, :update]
-
-
   end
+
 end
