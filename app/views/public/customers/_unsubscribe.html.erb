@@ -8,14 +8,18 @@
       チェックを入れて「退会する」ボタンをクリックしてください。
     </p>
   </div>
+  <%= form_with model: customer, url: customer_withdraw_path(customer.username), method: :patch do |f| %>
+  <div class="col">
+    <%= f.check_box :is_deleted, :as => :boolean, checked: false %>
+    <%= f.label :is_deleted, "上記事項に同意する" %>
+  </div>
   <div class="row mt-5">
     <div class="col text-right">
       <%= link_to "退会しない", customer_profile_path(customer.username), class:"btn btn-primary" %>
     </div>
     <div class="col text-left">
-      <%= form_with model: customer, url: customer_withdraw_path(customer.username), method: :patch do |f| %>
-        <%= f.submit "退会する", class:"btn btn-danger" %>
-      <% end %>
+      <%= f.submit "退会する", class:"btn btn-danger" %>
     </div>
   </div>
+  <% end %>
 </div>

@@ -6,9 +6,20 @@ class Public::CustomersController < ApplicationController
 
   def withdraw
     @customer = current_customer
-    @customer.update(is_deleted: true)
-    reset_session
-    redirect_to root_path
+    if @customer.update(withdraw_params)
+      reset_session
+      redirect_to root_path
+    else
+      render "customer/show"
+    end
   end
+
+
+  private
+
+  def withdraw_params
+    params.require(:customer).permit(:is_deleted)
+  end
+
 
 end

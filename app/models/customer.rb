@@ -4,6 +4,8 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :is_deleted, on: :withdraw , acceptance: { message: 'チェックを入れてください' }
+
   has_one_attached :profile_image
 
   has_many :posts, dependent: :destroy
