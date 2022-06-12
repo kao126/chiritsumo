@@ -1,6 +1,6 @@
 class Public::CustomersController < ApplicationController
   def show
-    @customer = Customer.find_by!(username: params[:username])
+    @customer = Customer.find_by(username: params[:username])
     @posts = @customer.posts
   end
 
@@ -12,6 +12,12 @@ class Public::CustomersController < ApplicationController
     else
       render "customer/show"
     end
+  end
+
+  def favorites
+    @customer = Customer.find_by(username: params[:username])
+    favorites = @customer.favorites.pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
   end
 
 

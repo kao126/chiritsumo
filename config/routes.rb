@@ -20,9 +20,12 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'homes/about'
     get '/:username' => "customers#show", as: "customer_profile"
+    get '/:username/favorites' => 'customers#favorites', as: "customer_favorites"
     patch '/:username/withdraw' => 'customers#withdraw', as: "customer_withdraw"
 
-    resources :posts, except: [:index]
+    resources :posts, except: [:index] do
+      resource :favorites, only: [:create, :destroy]
+    end
   end
 
 end

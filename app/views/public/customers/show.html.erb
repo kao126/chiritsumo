@@ -9,6 +9,9 @@
       <div class="col">
         <%= link_to "プロフィールを編集する", edit_customer_registration_path %>
       </div>
+      <div class="col">
+        <%=link_to"お気に入り",customer_favorites_path(@customer.username) %>
+      </div>
     </div>
 
   <!--投稿写真一覧-->
