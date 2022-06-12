@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_12_021529) do
+ActiveRecord::Schema.define(version: 2022_06_12_054709) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,12 @@ ActiveRecord::Schema.define(version: 2022_06_12_021529) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -84,6 +90,13 @@ ActiveRecord::Schema.define(version: 2022_06_12_021529) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "post_categories", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "post_tags", force: :cascade do |t|
     t.integer "post_id"
     t.integer "tag_id"
@@ -99,8 +112,7 @@ ActiveRecord::Schema.define(version: 2022_06_12_021529) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.integer "category", null: false
-    t.string "hash_name"
+    t.string "hashname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

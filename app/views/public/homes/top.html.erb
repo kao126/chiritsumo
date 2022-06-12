@@ -9,8 +9,8 @@
         <%= image_tag post.get_image(470, 580) %>
     <% end %>
     <div>
-      <% post.tags.each do |tag| %>
-        <p><%= tag.category %></p>
+      <% post.categories.each do |category| %>
+        <p><%= category.name %></p>
       <% end %>
       <p><%= post.caption %></p>
     </div>

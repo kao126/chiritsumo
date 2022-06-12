@@ -7,8 +7,8 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
     @post.save
-    @post_tag = PostTag.new(post_id: @post.id, tag_id: params[:category])
-    @post_tag.save
+    @post_category = PostCategory.new(post_id: @post.id, category_id: params[:name])
+    @post_category.save
     redirect_to root_path
   end
 
