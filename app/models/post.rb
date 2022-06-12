@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
   has_one_attached :image
   belongs_to :customer
+  has_many :post_tags, dependent: :destroy
+  has_many :tags, through: :post_tags, dependent: :destroy
 
   def get_image(width, height)
     unless image.attached?

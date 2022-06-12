@@ -2,16 +2,15 @@
 <p>Find me in app/views/public/homes/top.html.erb</p>
 
 <div class="container">
-
-<% @posts.each do |post| %>
-  <%= link_to customer_profile_path(post.customer.username) do %>
-    <div class="col-10 mb-3 mx-auto">
-      <%= post.customer.username %>
-      <%= image_tag post.get_image(470, 580) %>
-  <% end %>
-      <div>
-        <p><%= post.caption %></p>
-      </div>
+  <% @posts.each do |post| %>
+    <%= link_to customer_profile_path(post.customer.username) do %>
+      <div class="col-10 mb-3 mx-auto">
+        <%= post.customer.username %>
+        <%= image_tag post.get_image(470, 580) %>
+    <% end %>
+    <div>
+      <p><%= post.caption %></p>
     </div>
-<% end %>
+  </div>
+  <% end %>
 </div>
