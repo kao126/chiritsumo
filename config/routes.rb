@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     get '/explore/tags/:hashname' => "posts#tag", as: "post_tag"
 
     resources :posts, except: [:index] do
+      resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
   end

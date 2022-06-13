@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   has_one_attached :image
   belongs_to :customer
+  has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :post_categories, dependent: :destroy
   has_many :categories, through: :post_categories, dependent: :destroy

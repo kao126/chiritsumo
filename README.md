@@ -33,3 +33,9 @@
 <!--- 使用しない場合は、使用素材の項目をREADMEから削除してください。-->
 - 国際連合広報センター
   https://www.unic.or.jp/activities/economic_social_development/sustainable_development/2030agenda/sdgs_logo/
+
+
+
+## 注意事項
+- 「rails db:seed-fu」でデータの読み込み
+- 管理者ログイン情報(Email：admin@admin.com / Pass：000000)
