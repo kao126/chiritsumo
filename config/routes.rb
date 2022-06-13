@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     get '/:username' => "customers#show", as: "customer_profile"
     get '/:username/favorites' => 'customers#favorites', as: "customer_favorites"
     patch '/:username/withdraw' => 'customers#withdraw', as: "customer_withdraw"
-    get '/explore/tags/:hashname' => "posts#tag", as: "post_tag"
+    get '/explore/tags/:name' => "posts#tag", as: "post_tag"
 
     resources :posts, except: [:index] do
       resources :post_comments, only: [:create, :destroy]

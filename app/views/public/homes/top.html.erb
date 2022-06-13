@@ -12,7 +12,7 @@
       <% post.categories.each do |category| %>
         <p><%= category.name %></p>
       <% end %>
-      <p><%= post.caption %></p>
+      <p><%= post.render_with_tags(post.caption) %></p>
     </div>
   </div>
   <% end %>

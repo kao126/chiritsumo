@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+
   has_one_attached :image
   belongs_to :customer
   has_many :post_comments, dependent: :destroy
@@ -20,10 +21,9 @@ class Post < ApplicationRecord
     favorites.where(customer_id: customer.id).exists?
   end
 
-  # def render_with_hashtags(caption)
-  #   caption.gsub(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/){|word| link_to word, post_tag_path}
-  # end
-
+  def render_with_tags(caption)
+    caption.gsub(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/){ |word| link_to word, "/explore/tags/#{word.delete("#")}"}.html_safe
+  end
 
   #ハッシュタグを先頭の'#'を外した上で保存
   after_create do
