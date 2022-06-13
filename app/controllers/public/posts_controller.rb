@@ -34,6 +34,12 @@ class Public::PostsController < ApplicationController
     redirect_to customer_profile_path(@customer.username)
   end
 
+  def tag
+    @customer = current_customer
+    @tag = Tag.find_by(hashname: params[:hashname])
+    @posts = @tag.posts
+  end
+
   private
   def post_params
     params.require(:post).permit(:image, :caption)
