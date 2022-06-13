@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Public::Devise::RegistrationsController < Devise::RegistrationsController
+  before_action :ensure_normal_customer, only: [:update, :destroy]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -43,6 +44,12 @@ class Public::Devise::RegistrationsController < Devise::RegistrationsController
     # 遷移先「マイページ」へ変更
   def after_update_path_for(resource)
     customer_profile_path(current_customer.username)
+  end
+
+  def ensure_normal_customer
+    if resource.email == 'guest@example.com'
+      redirect_to root_path, alert: 'ゲストユーザーのためこの動作は制限されています。'
+    end
   end
 
   # If you have extra params to permit, append them to the sanitizer.

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     sessions: 'public/devise/sessions',
     passwords: 'public/devise/passwords'
   }
+  devise_scope :customer do
+    post 'customers/guest_sign_in' => 'public/devise/sessions#guest_sign_in', as: "guest_session"
+  end
 
   # 管理者用
   # URL: /admin/sign_in ...
