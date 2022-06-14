@@ -1,7 +1,7 @@
 <h1>Public::Posts#tag</h1>
 
 <div class="container">
-<h4>#<%= @hashtag.hashname %></h4>
+<h4>#<%= @tag.hashname %></h4>
   <div class="row row-cols-3 mx-auto px-5">
       <% @posts.each do |post| %>
         <%= link_to post_path(post) do %>

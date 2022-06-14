@@ -37,8 +37,8 @@ class Public::PostsController < ApplicationController
 
   def tag
     @customer = current_customer
-    @hashtag = Tag.find_by(hashname: params[:name])
-    @posts = @hashtag.posts
+    @tag = Tag.find_by(hashname: params[:name])
+    @posts = @tag.posts
   end
 
   private

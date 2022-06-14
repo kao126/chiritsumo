@@ -3,13 +3,27 @@
     <%= image_tag @post.get_image(470, 580) %>
   </div>
   <div>
-    <p id="favorites_btn_<%= @post.id %>">
-      <%= render 'public/favorites/btn', post: @post %>
-    </p>
+    <% if admin_signed_in? %>
+      <% if @post.favorites.count >= 1 %>
+        <p class="text-danger">
+          <i class="fas fa-heart" aria-hidden="true"></i>
+          <%= @post.favorites.count %>
+        </p>
+        <% else %>
+        <p>
+          <i class="far fa-heart" aria-hidden="true"></i>
+          <%= @post.favorites.count %>
+        </p>
+      <% end %>
+    <% else %>
+      <p id="favorites_btn_<%= @post.id %>">
+        <%= render 'public/favorites/btn', post: @post %>
+      </p>
+    <% end %>
     <% @post.categories.each do |category| %>
       <p><%= category.name %></p>
     <% end %>
-    <p><%= @post.caption %></p>
+    <p><%= render_with_tags(@post.caption) %></p>
     <%= render "public/post_comments/counter", post: @post %>
   </div>
     <%= link_to 'Edit', edit_post_path(@post) %>
