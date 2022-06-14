@@ -1,4 +1,18 @@
-いいね一覧
-<% @favorite_posts.each do |post|%>
-<%= image_tag post.get_image(300,300) %>
-<% end %>
+<div class='container'>
+  <div class="row">
+    <h3>いいね一覧</h3>
+  </div>
+  <div class="row row-cols-3 mx-auto px-5">
+    <% if !@favorite_posts.nil? %>
+      <% @favorite_posts.each do |post| %>
+        <%= link_to post_path(post) do %>
+        <div class="col text-center mb-4">
+            <%= image_tag post.get_image(300, 300) %>
+        </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p>「いいね」した投稿はここに保存されます</p>
+    <% end %>
+  </div>
+</div>
