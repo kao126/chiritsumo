@@ -17,6 +17,7 @@ class Post < ApplicationRecord
     image.variant(resize_to_fill: [width, height]).processed
   end
 
+  #いいねの確認
   def favorited_by?(customer)
     favorites.where(customer_id: customer.id).exists?
   end
@@ -25,16 +26,23 @@ class Post < ApplicationRecord
     caption.gsub(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/){ |word| link_to word, "/explore/tags/#{word.delete("#")}"}.html_safe
   end
 
+  #キーワード検索
+  def self.search_for(content)
+      self.where('caption LIKE?', '%' + content + '%')
+  end
+
   #ハッシュタグを先頭の'#'を外した上で保存
   after_create do
     post = Post.find_by(id: self.id)
     tags = self.caption.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    post.tags = []
     tags.uniq.map do |tag|
       hashtag = Tag.find_or_create_by(hashname: tag.downcase.delete('#'))
       post.tags << hashtag
     end
   end
 
+  #ハッシュタグを先頭の'#'を外した上で更新
   before_update do
     post = Post.find_by(id: self.id)
     post.tags.clear

@@ -1,7 +1,7 @@
 class Public::CustomersController < ApplicationController
   def show
     @customer = Customer.find_by(username: params[:username])
-    @posts = @customer.posts
+    @posts = @customer.posts.order(created_at: :DESC)
   end
 
   def withdraw

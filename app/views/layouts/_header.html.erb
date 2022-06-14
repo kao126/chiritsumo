@@ -8,9 +8,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <%= form_with method: :get, class: "col-4" do |f| %>
-        <%= f.text_field :content , placeholder:"\uf002 検索", class: "fa_icon text-light" %>
-      <% end %>
+        <%= render "public/searches/form" %>
       <% if customer_signed_in? %>
         <%= render "layouts/customer_header" %>
       <% elsif admin_signed_in? %>

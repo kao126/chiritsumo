@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     get '/:username/favorites' => 'customers#favorites', as: "customer_favorites"
     patch '/:username/withdraw' => 'customers#withdraw', as: "customer_withdraw"
     get '/explore/tags/:name' => "posts#tag", as: "post_tag"
+    get '/keywords/search' => "searches#search", as: "search"
 
     resources :posts, except: [:index] do
       resources :post_comments, only: [:create, :destroy]
