@@ -34,4 +34,8 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resources :customers, only: [:index,:show,:update,:edit]
+  end
+
 end

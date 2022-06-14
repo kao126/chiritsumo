@@ -1,0 +1,14 @@
+<div class="container px-5 px-sm-0">
+  <div class="row my-4">
+    <div class="col-2"></div>
+    <div class="col-3">
+        <i class="fas fa-users ml-3"></i>
+        <span class="ml-2">会員一覧</span>
+    </div>
+  </div>
+  <div class="row">
+    <div id="paginate" class="col-8 mx-auto">
+      <%= render 'index', customers: @customers %>
+    </div>
+  </div>
+</div>

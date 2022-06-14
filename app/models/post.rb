@@ -22,10 +22,6 @@ class Post < ApplicationRecord
     favorites.where(customer_id: customer.id).exists?
   end
 
-  def render_with_tags(caption)
-    caption.gsub(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/){ |word| link_to word, "/explore/tags/#{word.delete("#")}"}.html_safe
-  end
-
   #キーワード検索
   def self.search_for(content)
       self.where('caption LIKE?', '%' + content + '%')

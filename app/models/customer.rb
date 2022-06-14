@@ -1,4 +1,5 @@
 class Customer < ApplicationRecord
+  after_initialize :set_default_values
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -20,11 +21,34 @@ class Customer < ApplicationRecord
     profile_image.variant(resize_to_fill: [width, height]).processed
   end
 
+  #ゲストログイン情報の生成
   def self.guest
     find_or_create_by!(username: 'guest123', email: 'guest@example.com') do |guest|
       guest.password = SecureRandom.urlsafe_base64
     end
   end
 
+  def set_default_values
+    self.last_name  ||= ''
+    self.first_name ||= ''
+    self.last_name_kana ||= ''
+    self.first_name_kana ||= ''
+    self.prefecture_code ||= ''
+    self.address_city ||= ''
+    self.address_street ||= ''
+    self.address_building ||= ''
+  end
+
+  def full_name
+    self.last_name + " " + self.first_name
+  end
+
+  def full_name_kana
+    self.last_name_kana + " " + self.first_name_kana
+  end
+
+  def address
+    self.prefecture_code + self.address_city + self.address_street + "　" + self.address_building
+  end
 
 end

@@ -1,3 +1,2 @@
 module Public::PostsHelper
-
 end

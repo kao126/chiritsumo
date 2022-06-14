@@ -1,22 +1,22 @@
-<ul class="navbar-nav ml-auto">
+<ul class="navbar-nav col-8 ml-5">
   <li class="mx-1">
-    <%= link_to homes_about_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-    <i class="fas fa-home"></i>
+    <%= link_to admin_customers_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
+      <i class="fas fa-users"></i> Users
     <% end %>
   </li>
   <li class="mx-1">
     <%= link_to homes_about_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-    <i class="fas fa-home-alt"></i>
+      <i class="fas fa-link"></i> About
     <% end %>
   </li>
   <li class="mx-1">
-    <%= link_to homes_about_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-    <i class="fas fa-home-alt"></i>
+    <%= link_to root_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
+      <i class="fas fa-store-alt"></i> Shop
     <% end %>
   </li>
   <li class="mx-1">
-    <%= link_to homes_about_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-    <i class="fas fa-home-alt"></i>
+    <%= link_to destroy_admin_session_path, method: :delete, class:"nav-link bg-light text-secondary rounded-lg" do %>
+      <i class="fas fa-sign-out-alt"></i> Log Out
     <% end %>
   </li>
 </ul>
