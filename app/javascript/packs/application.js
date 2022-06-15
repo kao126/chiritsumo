@@ -22,12 +22,12 @@ ActiveStorage.start()
 // jpostalの記述
 /*global $*/
 $(document).on('turbolinks:load', function () {
-  $('#customer_postal_code').jpostal({
-    postcode : ['#customer_postal_code'],
+  $('#postal_code').jpostal({
+    postcode : ['#postal_code'],
     address : {
-      "#customer_prefecture_code" : "%3",
-      "#customer_address_city" : "%4",
-      "#customer_address_street" : "%5%6%7",
+      "#prefecture_code" : "%3",
+      "#address_city" : "%4",
+      "#address_street" : "%5%6%7",
     }
   });
 });
