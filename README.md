@@ -37,5 +37,5 @@
 
 
 ## 注意事項
-- 「rails db:seed-fu」でデータの読み込み
+- 「rails db:seed_fu」でデータの読み込み
 - 管理者ログイン情報(URL："/admins/sign_in", Email：admin@admin.com / Pass：000000)

@@ -4,6 +4,9 @@
   <!--新規写真投稿フォームへのリンク-->
     <div class="row">
       <div class="col">
+        <%= image_tag @customer.get_profile_image(300,300) %>
+      </div>
+      <div class="col">
         <%= link_to "新規投稿", new_post_path %>
       </div>
       <div class="col">

@@ -32,6 +32,8 @@ Rails.application.routes.draw do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
+    resources :customers, only: [:update]
+
   end
 
   namespace :admin do
