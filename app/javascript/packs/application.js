@@ -13,11 +13,21 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
-import "./jquery.jpostal.js"
-
-
-require("./jquery.js")
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+
+// jpostalの記述
+/*global $*/
+$(document).on('turbolinks:load', function () {
+  $('#customer_postal_code').jpostal({
+    postcode : ['#customer_postal_code'],
+    address : {
+      "#customer_prefecture_code" : "%3",
+      "#customer_address_city" : "%4",
+      "#customer_address_street" : "%5%6%7",
+    }
+  });
+});

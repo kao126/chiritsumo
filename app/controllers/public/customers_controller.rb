@@ -30,7 +30,22 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:profile_image, :last_name, :first_name, :last_name_kana, :first_name_kana, :username, :introduction, :telephone_number, :email, :postal_code, :prefecture_code, :address_city, :address_street, :address_building)
+    params.require(:customer).permit(
+      :profile_image,
+      :last_name,
+      :first_name,
+      :last_name_kana,
+      :first_name_kana,
+      :username,
+      :introduction,
+      :telephone_number,
+      :email,
+      :postal_code,
+      :prefecture_code,
+      :address_city,
+      :address_street,
+      :address_building
+    )
   end
 
   def withdraw_params
