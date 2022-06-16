@@ -8,3 +8,13 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 .fa_icon {
   font-family: "Font Awesome 5 Free";
 }
+
+// アバウトページ
+// SDGs背景
+.about_background_image {
+  background-image: url('/images/sdgs_ja.jpeg');
+  background-size: contain;
+  height: 500px;
+  width: 700px;
+  margin: 0 auto;
+}

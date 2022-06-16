@@ -1,2 +1,8 @@
-<h1>Public::Homes#about</h1>
-<p>Find me in app/views/public/homes/about.html.erb</p>
+<div class="container">
+  <div class="about_background_image"></div>
+  <h4>今までの取り組み</h4>
+  <div>参加ユーザー数（累計）：<%= @post_customer.count %> 人</div>
+  <div>投稿数（累計）：<%= @posts.count %> 件</div>
+      <%= bar_chart @sum, width: "1050px", height: "400px", max: 100, colors: ["#e5243b", "#DDA63A", "#4C9F38", "#C5192D", "#FF3A21", "#26BDE2", "#FCC30B", "#A21942", "#FD6925", "#DD1367", "#FD9D24", "#BF8B2E", "#3F7E44", "#0A97D9", "#56C02B", "#00689D", "#19486A"] %>
+  <p>※当サイト上の集計です</p>
+</div>
