@@ -7,7 +7,8 @@
 
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", id: "new_pass" %>
+    <input type="checkbox" onChange="document.getElementById('new_pass').type = (this.checked) ? 'text' : 'password';">パスワードを表示する
     <% if minimum_password_length %>
       <br />
       <em><%= minimum_password_length %> characters minimum</em>
@@ -16,12 +17,14 @@
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "confirm_new_pass" %>
+    <input type="checkbox" onChange="document.getElementById('confirm_new_pass').type = (this.checked) ? 'text' : 'password';">パスワードを表示する
   </div>
 
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.password_field :current_password, autocomplete: "current-password", id: "current_pass" %>
+    <input type="checkbox" onChange="document.getElementById('current_pass').type = (this.checked) ? 'text' : 'password';">パスワードを表示する
   </div>
 
   <div class="actions">

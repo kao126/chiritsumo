@@ -2,10 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # 顧客用
   # URL: /customers/...
-  devise_for :customers, controllers: {
+  devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/devise/registrations",
     sessions: 'public/devise/sessions',
-    passwords: 'public/devise/passwords'
   }
   devise_scope :customer do
     post 'customers/guest_sign_in' => 'public/devise/sessions#guest_sign_in', as: "guest_session"
@@ -13,10 +12,8 @@ Rails.application.routes.draw do
 
   # 管理者用
   # URL: /admin/sign_in ...
-  devise_for :admins, controllers: {
-    registrations: "admin/devise/registrations",
+  devise_for :admins, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/devise/sessions",
-    passwords: 'admin/devise/passwords'
   }
 
   scope module: :public do

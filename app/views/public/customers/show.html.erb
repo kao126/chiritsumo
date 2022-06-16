@@ -1,20 +1,28 @@
-<h1>Public::Customers#show</h1>
 <div class="container contents">
 
   <!--新規写真投稿フォームへのリンク-->
     <div class="row">
-      <div class="col">
-        <%= image_tag @customer.get_profile_image(300,300) %>
+      <div class="col-4 text-center">
+        <%= image_tag @customer.get_profile_image(200,200) %>
       </div>
-      <div class="col">
-        <%= link_to "新規投稿", new_post_path %>
+      <div class="col-8">
+        <div class="col">
+          <%= link_to "新規投稿", new_post_path %>
+        </div>
+        <div class="col">
+          <%= link_to "プロフィールを編集する", edit_customer_registration_path %>
+        </div>
+        <div class="col">
+          <%=link_to"お気に入り",customer_favorites_path(@customer.username) %>
+        </div>
+        <div class="col">
+          <%= @customer.username %>
+        </div>
+        <div class="col">
+          <%= @customer.introduction %>
+        </div>
       </div>
-      <div class="col">
-        <%= link_to "プロフィールを編集する", edit_customer_registration_path %>
-      </div>
-      <div class="col">
-        <%=link_to"お気に入り",customer_favorites_path(@customer.username) %>
-      </div>
+
     </div>
 
   <!--投稿写真一覧-->
