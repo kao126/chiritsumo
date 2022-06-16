@@ -1,39 +1,16 @@
-<% if @posts.exists? %>
 <div class="container contents">
-  <% if customer_signed_in? || admin_signed_in? %>
-    <% @posts.each do |post| %>
-      <%= link_to customer_profile_path(post.customer.username) do %>
-        <div class="col-10 mb-3 mx-auto">
-          <%= post.customer.username %>
-          <%= image_tag post.get_image(470, 580) %>
-      <% end %>
-      <div>
-        <% post.categories.each do |category| %>
-          <p><%= category.name %></p>
-        <% end %>
-        <p><%= render_with_tags(post.caption) %></p>
-      </div>
+  <% if @posts.exists? %>
+    <% if customer_signed_in? || admin_signed_in? %>
+    <div id="paginate">
+      <%= render "top", posts: @posts %>
+    </div>
+    <% else %>
+      <%= link_to 'ゲストログイン（閲覧用）', guest_session_path, method: :post %>
+    <div id="paginate">
+      <%= render "top", posts: @posts %>
     </div>
     <% end %>
   <% else %>
-    <%= link_to 'ゲストログイン（閲覧用）', guest_session_path, method: :post %>
-    <% @posts.each do |post| %>
-      <%= link_to customer_profile_path(post.customer.username) do %>
-        <div class="col-10 mb-3 mx-auto">
-          <%= post.customer.username %>
-          <%= image_tag post.get_image(470, 580) %>
-      <% end %>
-      <div>
-        <% post.categories.each do |category| %>
-          <p><%= category.name %></p>
-        <% end %>
-        <p><%= render_with_tags(post.caption) %></p>
-      </div>
-    </div>
-    <% end %>
+    <p>写真を投稿してユーザーとシェアしよう！！</p>
   <% end %>
-<% else %>
-  <p>写真を投稿してユーザーとシェアしよう！！</p>
-<% end %>
-
 </div>
