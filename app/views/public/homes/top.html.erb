@@ -1,7 +1,5 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
 <% if @posts.exists? %>
-<div class="container">
+<div class="container contents">
   <% if customer_signed_in? || admin_signed_in? %>
     <% @posts.each do |post| %>
       <%= link_to customer_profile_path(post.customer.username) do %>
