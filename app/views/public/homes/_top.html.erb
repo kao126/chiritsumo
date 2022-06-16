@@ -8,6 +8,7 @@
     <% post.categories.each do |category| %>
       <p><%= category.name %></p>
     <% end %>
+    <!--ハッシュタグをリンク化 / Homesヘルパーに記載-->
     <p><%= render_with_tags(post.caption) %></p>
   </div>
 </div>
