@@ -5,27 +5,31 @@
   <div>
     <% if admin_signed_in? %>
       <!--いいねボタン / 管理者の場合の表記-->
-      <%= render 'public/posts/admin_favorites_btn', post: @post %>
+      <%= render 'public/favorites/admin_favorites_btn', post: @post %>
     <% else %>
       <!--会員（または、ゲストユーザー）の場合-->
       <p id="favorites_btn_<%= @post.id %>">
         <%= render 'public/favorites/btn', post: @post %>
       </p>
     <% end %>
-
+      <p id="favorites_counter_<%= @post.id %>">
+        <%= render 'public/favorites/counter', post: @post %>
+      </p>
     <% @post.categories.each do |category| %>
       <p><%= category.name %></p>
     <% end %>
     <!--ハッシュタグをリンク化 / Homesヘルパーに記載-->
     <p><%= render_with_tags(@post.caption) %></p>
-    <%= render "public/post_comments/counter", post: @post %>
+    <div id="post-comments-counter">
+      <%= render "public/post_comments/counter", post: @post %>
+    </div>
   </div>
 
   <%= link_to 'Edit', edit_post_path(@post) %>
   <%= link_to 'Destroy', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' } %>
 
   <!--以下、コメント機能-->
-  <div class="post-comments-index">
+  <div id="post-comments-index">
     <%= render "public/post_comments/index", post: @post %>
   </div>
 

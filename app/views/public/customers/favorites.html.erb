@@ -4,7 +4,7 @@
   </div>
   <div class="row row-cols-3 mx-auto px-5">
     <!--「いいね」した履歴があるか確認-->
-    <% if !@favorite_posts.nil? %>
+    <% if @favorite_posts.present? %>
       <% @favorite_posts.each do |post| %>
         <%= link_to post_path(post) do %>
         <div class="col text-center mb-4">
