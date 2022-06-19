@@ -1,4 +1,4 @@
-Admin.seed do |s|
-  s.email = 'admin@admin.com'
-  s.password = '000000'
-end
+Admin.create!(
+  email: 'admin@admin.com',
+  password: '000000'
+)
