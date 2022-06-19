@@ -9,6 +9,14 @@ class Post < ApplicationRecord
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags, dependent: :destroy
 
+  with_options presence: true, on: :shared do
+    validates :image
+    validates :caption, length: { maximum: 100 }
+  end
+
+
+  enum status: {pending: 0, shared: 1}
+
   def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no-image.jpeg')

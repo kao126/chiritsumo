@@ -1,0 +1,12 @@
+<div class="container contents">
+  <!--下書き投稿一覧-->
+  <div class="row row-cols-3 mx-auto px-5">
+      <% @posts.each do |post| %>
+        <%= link_to post_path(post) do %>
+        <div class="col text-center mb-4">
+            <%= image_tag post.get_image(300, 300) %>
+        </div>
+        <% end %>
+      <% end %>
+  </div>
+</div>

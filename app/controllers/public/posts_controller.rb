@@ -6,10 +6,24 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
-    @post.save
-    @post_category = PostCategory.new(post_id: @post.id, category_id: params[:name])
-    @post_category.save
-    redirect_to root_path
+    if params[:pending]
+    # 下書きボタンを押下した場合
+      if @post.update(status: "pending")
+        redirect_to customer_profile_path(current_customer.username), notice: "下書きを保存しました！"
+      else
+        render :new, alert: "登録できませんでした。入力内容をご確認のうえ再度お試しください"
+      end
+    else
+      if @post.save(context: :shared)
+        @post_category = PostCategory.new(post_id: @post.id, category_id: params[:name])
+        @post_category.save
+        redirect_to root_path, notice: "投稿しました！"
+      else
+        render :new, alert: "投稿できませんでした。入力内容をご確認のうえ再度お試しください"
+      end
+    end
+
+
   end
 
   def show
@@ -41,9 +55,15 @@ class Public::PostsController < ApplicationController
     @posts = @tag.posts
   end
 
+  def pending
+    @customer = current_customer
+    @posts = Post.where(status: "pending").order(created_at: :DESC)
+  end
+
+
   private
   def post_params
-    params.require(:post).permit(:image, :caption)
+    params.require(:post).permit(:image, :caption, :status)
   end
 
 end
