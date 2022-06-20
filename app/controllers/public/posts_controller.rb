@@ -7,14 +7,17 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
     if params[:pending]
-    # 下書きボタンを押下した場合
+      # 下書きボタンを押下した場合
       if @post.update(status: "pending")
+        @post_category = PostCategory.new(post_id: @post.id, category_id: params[:name])
+        @post_category.save
         redirect_to customer_profile_path(current_customer.username), notice: "下書きを保存しました！"
       else
         render :new, alert: "登録できませんでした。入力内容をご確認のうえ再度お試しください"
       end
     else
-      if @post.save(context: :shared)
+      # 投稿ボタンを押下した場合
+      if @post.save(context: :share)
         @post_category = PostCategory.new(post_id: @post.id, category_id: params[:name])
         @post_category.save
         redirect_to root_path, notice: "投稿しました！"
@@ -22,8 +25,6 @@ class Public::PostsController < ApplicationController
         render :new, alert: "投稿できませんでした。入力内容をご確認のうえ再度お試しください"
       end
     end
-
-
   end
 
   def show
@@ -37,9 +38,26 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    @customer = @post.customer
-    redirect_to customer_profile_path(@customer.username)
+    if params[:shared]
+     # 投稿ボタンを押下した場合
+      if @post.update(status: :shared)
+        redirect_to root_path, notice: "投稿しました！"
+      else
+        render :edit, alert: "投稿できませんでした。入力内容をご確認のうえ再度お試しください"
+      end
+    else
+      # 下書きボタンを押下した場合
+      if @post.update(post_params)
+        redirect_to customer_profile_path(current_customer.username), notice: "下書きを保存しました！"
+      else
+        render :edit, alert: "登録できませんでした。入力内容をご確認のうえ再度お試しください"
+      end
+
+    end
+
+
+
+
   end
 
   def destroy

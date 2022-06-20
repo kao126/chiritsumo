@@ -9,14 +9,14 @@ class Post < ApplicationRecord
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags, dependent: :destroy
 
-  with_options presence: true, on: :shared do
+  with_options presence: true, on: :share do
     validates :image
     validates :caption, length: { maximum: 100 }
   end
 
-
   enum status: {pending: 0, shared: 1}
 
+  #投稿の写真がなかった場合（Active Storage）
   def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no-image.jpeg')
