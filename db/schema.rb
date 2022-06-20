@@ -90,13 +90,6 @@ ActiveRecord::Schema.define(version: 2022_06_13_055759) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "post_categories", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "category_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "post_comments", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "post_id"
@@ -116,6 +109,7 @@ ActiveRecord::Schema.define(version: 2022_06_13_055759) do
     t.text "caption"
     t.integer "status", default: 1
     t.integer "customer_id"
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

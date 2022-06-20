@@ -17,9 +17,7 @@
       <!--会員ではない場合-->
       <%= render 'public/favorites/admin_favorites_btn', post: post %>
     <% end %>
-    <% post.categories.each do |category| %>
-      <p><%= category.name %></p>
-    <% end %>
+    <p><%= post.category.name %></p>
     <!--ハッシュタグをリンク化 / Homesヘルパーに記載-->
     <p><%= render_with_tags(post.caption) %></p>
   </div>

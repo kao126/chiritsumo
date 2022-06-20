@@ -9,8 +9,6 @@ class Public::PostsController < ApplicationController
     if params[:pending]
       # 下書きボタンを押下した場合
       if @post.update(status: "pending")
-        @post_category = PostCategory.new(post_id: @post.id, category_id: params[:name])
-        @post_category.save
         redirect_to customer_profile_path(current_customer.username), notice: "下書きを保存しました！"
       else
         render :new, alert: "登録できませんでした。入力内容をご確認のうえ再度お試しください"
@@ -18,8 +16,6 @@ class Public::PostsController < ApplicationController
     else
       # 投稿ボタンを押下した場合
       if @post.save(context: :share)
-        @post_category = PostCategory.new(post_id: @post.id, category_id: params[:name])
-        @post_category.save
         redirect_to root_path, notice: "投稿しました！"
       else
         render :new, alert: "投稿できませんでした。入力内容をご確認のうえ再度お試しください"
@@ -52,12 +48,7 @@ class Public::PostsController < ApplicationController
       else
         render :edit, alert: "登録できませんでした。入力内容をご確認のうえ再度お試しください"
       end
-
     end
-
-
-
-
   end
 
   def destroy
@@ -81,7 +72,7 @@ class Public::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:image, :caption, :status)
+    params.require(:post).permit(:image, :caption, :status, :category_id)
   end
 
 end

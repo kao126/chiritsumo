@@ -15,9 +15,7 @@
       <p id="favorites_counter_<%= @post.id %>">
         <%= render 'public/favorites/counter', post: @post %>
       </p>
-    <% @post.categories.each do |category| %>
-      <p><%= category.name %></p>
-    <% end %>
+      <p><%= @post.category.name %></p>
     <!--ハッシュタグをリンク化 / Homesヘルパーに記載-->
     <p><%= render_with_tags(@post.caption) %></p>
     <div id="post-comments-counter">
