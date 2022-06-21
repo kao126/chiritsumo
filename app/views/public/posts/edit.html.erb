@@ -5,13 +5,12 @@
     <%= f.text_area :caption %>
     <%= f.select :category_id, Category.all.map { |category| [category.name, category.id] }, prompt: '選択してください' %>
 
-    <% if @post.status == "pending" %>
-          <%= f.submit "投稿", :name => 'shared' %>
-          <%= f.submit "下書きを更新" %>
-        <% else %>
-          <%= f.submit "更新" %>
-        <% end %>
-
+    <% if @post.status == "draft" %>
+      <%= f.submit "投稿", :name => 'share' %>
+      <%= f.submit "下書きを更新", :name => 'draft' %>
+    <% else %>
+      <%= f.submit "更新" %>
+    <% end %>
 
   <% end %>
 </div>

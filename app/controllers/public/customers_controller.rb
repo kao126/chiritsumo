@@ -1,22 +1,25 @@
 class Public::CustomersController < ApplicationController
+
+  before_action :authenticate_customer!
+
   def show
     @customer = Customer.find_by(username: params[:username])
-    @posts = @customer.posts.where(status: "shared").order(created_at: :DESC)
+    @posts = @customer.posts.where(status: "share").order(created_at: :DESC)
   end
 
   def update
     @customer = Customer.find_by(id: params[:id])
     @customer.update(customer_params)
-    redirect_to customer_profile_path(@customer.username)
+    redirect_to customer_profile_path(@customer.username), notice: "会員情報を更新しました！"
   end
 
   def withdraw
     @customer = current_customer
     if @customer.update(withdraw_params)
       reset_session
-      redirect_to root_path
+      redirect_to root_path, notice: "退会の手続きが完了しました。"
     else
-      render "customer/show"
+      render "customer/show", alert: "手続きが完了していません！！入力内容をご確認のうえ再度お試しください。"
     end
   end
 
@@ -51,6 +54,5 @@ class Public::CustomersController < ApplicationController
   def withdraw_params
     params.require(:customer).permit(:is_deleted)
   end
-
 
 end

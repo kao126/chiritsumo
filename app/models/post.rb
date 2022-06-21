@@ -8,13 +8,13 @@ class Post < ApplicationRecord
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags, dependent: :destroy
 
-  with_options presence: true, on: :share do
+  with_options presence: true do
     validates :image
     validates :caption, length: { maximum: 100 }
     validates :category_id
   end
 
-  enum status: {pending: 0, shared: 1}
+  enum status: {draft: 0, share: 1}
 
   #投稿の写真がなかった場合（Active Storage）
   def get_image(width, height)
@@ -22,7 +22,7 @@ class Post < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/no-image.jpeg')
       image.attach(io: File.open(file_path), filename: 'no-image.jpeg', content_type: 'image/jpeg')
     end
-    image.variant(resize_to_fill: [width, height]).processed
+    image.variant(resize_to_fill: [width, height])
   end
 
   #いいねの確認

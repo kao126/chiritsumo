@@ -1,7 +1,11 @@
 <div class="container fixed-top">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-    <%= link_to "Logo", root_path, class: "navbar-brand col-md-4" %>
+    <div class="navbar-brand col-md-4">
+    <%= link_to root_path do %>
+      <%= image_tag 'logo.png',size: '120x60' %>
+    <% end %>
+    </div>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

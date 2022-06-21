@@ -39,12 +39,14 @@ class Public::Devise::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  protected
     # 会員情報変更
     # 遷移先「マイページ」へ変更
   def after_update_path_for(resource)
     customer_profile_path(current_customer.username)
   end
+
+
+  protected
 
   def ensure_normal_customer
     if resource.email == 'guest@example.com'

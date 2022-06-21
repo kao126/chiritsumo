@@ -1,7 +1,0 @@
-<%= form_with model: post do |f| %>
-  <%= f.file_field :image, accept: "image/*" %>
-  <%= f.text_area :caption %>
-  <!--PostCategoryモデルにパラメータを飛ばすための実装-->
-  <%= select_tag "name", options_from_collection_for_select(Category.all, :id, :name), prompt: '選択してください' %>
-  <%= f.submit %>
-<% end %>

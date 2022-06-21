@@ -5,9 +5,14 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 
 
-// 全ページ（ヘッダーfixedのため）
-.contents {
+// flash（ヘッダーfixedのため）
+.contents-flash {
   padding-top: 80px;
+}
+
+// 全ページ用
+.contents {
+  padding-top: 40px;
 }
 
 // ヘッダー
