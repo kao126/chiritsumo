@@ -15,7 +15,7 @@
             <%=link_to"お気に入り",customer_favorites_path(@customer.username) %>
           </div>
           <div class="col">
-            <%=link_to"下書き",post_pending_path(@customer.username) %>
+            <%=link_to"下書き",post_draft_path(@customer.username) %>
           </div>
         <% end %>
 

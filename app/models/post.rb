@@ -1,20 +1,25 @@
 class Post < ApplicationRecord
-
   has_one_attached :image
   belongs_to :customer
-  belongs_to :category
+  belongs_to :category, optional: true
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags, dependent: :destroy
 
-  with_options presence: true do
-    validates :image
-    validates :caption, length: { maximum: 100 }
-    validates :category_id
+  enum status: {draft: 0, share: 1}
+
+  validates_each :image do |record, attr, value|
+    if record.status == "share"
+      record.errors.add(attr, '：画像を選択してください。') if record.image.blank?
+    end
   end
 
-  enum status: {draft: 0, share: 1}
+  validates_each :category_id do |record, attr, value|
+    if record.status == "share"
+      record.errors.add(attr, '：カテゴリーを選択してください。') if record.category_id.nil?
+    end
+  end
 
   #投稿の写真がなかった場合（Active Storage）
   def get_image(width, height)
@@ -22,7 +27,7 @@ class Post < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/no-image.jpeg')
       image.attach(io: File.open(file_path), filename: 'no-image.jpeg', content_type: 'image/jpeg')
     end
-    image.variant(resize_to_fill: [width, height])
+    image.variant(resize_to_fill: [width, height]).processed
   end
 
   #いいねの確認
@@ -56,6 +61,5 @@ class Post < ApplicationRecord
       post.tags << hashtag
     end
   end
-
 
 end

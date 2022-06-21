@@ -1,4 +1,5 @@
 <div class="container contents">
+  <%= render 'layouts/error', obj: @post %>
   <!--投稿編集フォーム-->
   <%= form_with model: @post do |f| %>
     <%= f.file_field :image, accept: "image/*" %>

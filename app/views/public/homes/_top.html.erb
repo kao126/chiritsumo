@@ -1,10 +1,23 @@
 <% posts.each do |post| %>
   <div class="col-10 mb-3 mx-auto">
-    <%= link_to customer_profile_path(post.customer.username) do %>
-      <%= post.customer.username %>
-      <%= image_tag post.get_image(470, 580) %>
-    <% end %>
-    
+
+    <div>
+      <!--カテゴリー画像 / Homesヘルパーに記載-->
+      <%= post_category_image(post.category_id) %>
+      <%= post.category.name %>
+    </div>
+
+
+    <div>
+      <%= link_to customer_profile_path(post.customer.username) do %>
+        <div>
+          <%= image_tag post.customer.get_profile_image(60,60) %>
+          <%= post.customer.username %>
+        </div>
+        <div><%= image_tag post.get_image(470, 580) %></div>
+      <% end %>
+    </div>
+    <div>
     <!--いいね機能-->
     <% if customer_signed_in? %>
       <!--会員（または、ゲストユーザー）-->
@@ -13,8 +26,8 @@
       <!--管理者・ビジター-->
       <%= render 'public/favorites/admin_favorites_btn', post: post %>
     <% end %>
-    
-    <p><%= post.category.name %></p>
+    </div>
+
 
     <!--ハッシュタグをリンク化 / Homesヘルパーに記載-->
     <p><%= render_with_tags(post.caption) %></p>

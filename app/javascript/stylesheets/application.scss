@@ -4,6 +4,15 @@
 $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 
+// ヘッダー
+.header {
+  background-color: #F8F9FA;
+}
+
+// 検索窓にFont-Awesomeアイコン表示
+.fa_icon {
+  font-family: "Font Awesome 5 Free";
+}
 
 // flash（ヘッダーfixedのため）
 .contents-flash {
@@ -15,11 +24,6 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
   padding-top: 40px;
 }
 
-// ヘッダー
-// 検索窓にFont-Awesomeアイコン表示
-.fa_icon {
-  font-family: "Font Awesome 5 Free";
-}
 
 // アバウトページ
 // SDGs背景

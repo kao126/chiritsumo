@@ -1,6 +1,6 @@
 class Public::HomesController < ApplicationController
   def top
-    @posts = Post.where(status: "share").page(params[:page]).per(15).order(created_at: :DESC)
+    @posts = Post.where(status: "share").page(params[:page]).per(10).order(created_at: :DESC)
   end
 
   def about

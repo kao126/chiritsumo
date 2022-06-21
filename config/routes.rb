@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     patch '/:username/withdraw' => 'customers#withdraw', as: "customer_withdraw"
     get '/explore/tags/:name' => "posts#tag", as: "post_tag"
     get '/keywords/search' => "searches#search", as: "search"
-    get '/:username/pending' => 'posts#pending', as: "post_pending"
+    get '/:username/draft' => 'posts#draft', as: "post_draft"
 
     resources :posts, except: [:index] do
       resources :post_comments, only: [:create, :destroy]

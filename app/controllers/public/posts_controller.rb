@@ -13,7 +13,7 @@ class Public::PostsController < ApplicationController
     if params[:draft]
       # 下書きボタンを押下した場合
       @post.status = Post.statuses[:draft]
-      if @post.save(validate: false)
+      if @post.save
         redirect_to customer_profile_path(current_customer.username), notice: "下書きを保存しました！"
       else
         render :new, alert: "登録できませんでした。入力内容をご確認のうえ再度お試しください。"
@@ -40,25 +40,22 @@ class Public::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if params[:share]
-     # 投稿ボタンを押下した場合
-      if @post.update(status: :share)
+      # 投稿ボタンを押下した場合
+      @post.status = Post.statuses[:share]
+      @post.touch(:created_at)
+      if @post.update(post_params)
         redirect_to root_path, notice: "投稿しました！"
       else
         render :edit, alert: "投稿できませんでした。入力内容をご確認のうえ再度お試しください。"
       end
-    elsif params[:draft]
-      # 下書きボタンを押下した場合
-      if @post.update(status: :draft)
-        redirect_to customer_profile_path(current_customer.username), notice: "下書きを保存しました！"
-      else
-        render :edit, alert: "登録できませんでした。入力内容をご確認のうえ再度お試しください。"
-      end
     else
+      # 下書き（もしくは、更新）ボタンを押下した場合
       if @post.update(post_params)
-        redirect_to customer_profile_path(current_customer.username), notice: "下書きを保存しました！"
+        redirect_to post_path(@post), notice: "下書きを保存しました！"
       else
         render :edit, alert: "登録できませんでした。入力内容をご確認のうえ再度お試しください。"
       end
+
     end
   end
 
@@ -75,9 +72,9 @@ class Public::PostsController < ApplicationController
     @posts = @tag.posts
   end
 
-  def pending
+  def draft
     @customer = current_customer
-    @posts = Post.where(status: "draft").order(created_at: :DESC)
+    @customer_posts = @customer.posts.where(status: "draft").order(created_at: :DESC)
   end
 
 
