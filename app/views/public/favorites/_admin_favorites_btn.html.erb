@@ -1,11 +1,11 @@
 <% if post.favorites.count >= 1 %>
-  <p class="text-danger">
+  <span class="text-danger">
     <i class="fas fa-heart" aria-hidden="true"></i>
     <%= post.favorites.count %>
-  </p>
+  </span>
   <% else %>
-  <p>
+  <span>
     <i class="far fa-heart" aria-hidden="true"></i>
     <%= post.favorites.count %>
-  </p>
+  </span>
 <% end %>

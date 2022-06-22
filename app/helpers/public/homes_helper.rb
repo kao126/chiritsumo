@@ -10,7 +10,7 @@ module Public::HomesHelper
       when 1 then
         image_tag 'category_1.png', size: '60x60'
       when 2 then
-        image_tag 'category_2.png', size: '60x60'
+        image_tag 'category_2.png', size: '50x50'
       when 3 then
         image_tag 'category_3.png', size: '60x60'
       when 4 then

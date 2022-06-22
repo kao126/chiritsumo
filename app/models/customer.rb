@@ -27,7 +27,8 @@ class Customer < ApplicationRecord
       guest.password = SecureRandom.urlsafe_base64
     end
   end
-
+  
+  # データがない場合に空文字を入れる
   def set_default_values
     self.last_name  ||= ''
     self.first_name ||= ''

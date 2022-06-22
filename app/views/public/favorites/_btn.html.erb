@@ -1,9 +1,9 @@
 <% if post.favorited_by?(current_customer) %>
-    <%= link_to post_favorites_path(post), method: :delete, remote: true, class: "text-danger" do %>
+    <%= link_to post_favorites_path(post), method: :delete, remote: true, class: "after_favorite_color" do %>
       <i class="fas fa-heart" aria-hidden="true"></i>
     <% end %>
 <% else %>
-    <%= link_to post_favorites_path(post), method: :post, remote: true do %>
+    <%= link_to post_favorites_path(post), method: :post, remote: true, class: "before_favorite_color" do %>
       <i class="far fa-heart" aria-hidden="true"></i>
     <% end %>
 <% end %>

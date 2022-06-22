@@ -24,6 +24,22 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
   padding-top: 40px;
 }
 
+// トップページ
+.content_size {
+  width: fit-content;
+}
+
+.category_color_2 {
+  border: solid 3px #DDA63A;
+}
+
+.underline_2 {
+  border_bottom: solid 3px #DDA63A;
+}
+
+.size {
+  width: 470px;
+}
 
 // アバウトページ
 // SDGs背景
@@ -33,4 +49,21 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
   height: 500px;
   width: 700px;
   margin: 0 auto;
+}
+
+// いいね機能
+.before_favorite_color {
+  color: #000;
+}
+
+.before_favorite_color:hover {
+  color: #f73670;
+}
+
+.after_favorite_color {
+  color: #f73670;
+}
+
+.after_favorite_color:hover {
+  color: #f73670;
 }

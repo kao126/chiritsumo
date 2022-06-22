@@ -1,11 +1,5 @@
 <% posts.each do |post| %>
-  <div class="col-10 mb-3 mx-auto">
-
-    <div>
-      <!--カテゴリー画像 / Homesヘルパーに記載-->
-      <%= post_category_image(post.category_id) %>
-      <%= post.category.name %>
-    </div>
+  <div class="mb-3 mx-auto px-0 content_size category_color_<%= post.category_id %>">
 
 
     <div>
@@ -17,20 +11,29 @@
         <div><%= image_tag post.get_image(470, 580) %></div>
       <% end %>
     </div>
-    <div>
-    <!--いいね機能-->
-    <% if customer_signed_in? %>
-      <!--会員（または、ゲストユーザー）-->
-      <p id="favorites_btn_<%= post.id %>"><%= render 'public/favorites/btn', post: post %></p>
-    <% else %>
-      <!--管理者・ビジター-->
-      <%= render 'public/favorites/admin_favorites_btn', post: post %>
-    <% end %>
+
+
+    <div class="underline_<%= post.category_id %>">
+      <!--カテゴリー画像 / Homesヘルパーに記載-->
+      <%= post_category_image(post.category_id) %>
+      <%= post.category.name %>
+
+      <!--いいね機能-->
+      <% if customer_signed_in? %>
+        <span id="favorites_btn_<%= post.id %>"><%= render 'public/favorites/btn', post: post %></span>
+      <% else %>
+        <%= render 'public/favorites/admin_favorites_btn', post: post %>
+      <% end %>
     </div>
 
+    <div class="size">
+      <% if post.caption.present? %>
+        <%= post.customer.username %>
+        <!--ハッシュタグをリンク化 / Homesヘルパーに記載-->
+        <%= render_with_tags(post.caption) %>
+      <% end %>
+    </div>
 
-    <!--ハッシュタグをリンク化 / Homesヘルパーに記載-->
-    <p><%= render_with_tags(post.caption) %></p>
   </div>
 <% end %>
 
