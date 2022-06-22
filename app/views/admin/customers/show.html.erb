@@ -1,14 +1,25 @@
 <div class="container contents px-5 px-sm-0">
   <div class="row my-5">
     <div class="col-2"></div>
-    <div class="col-3 ad_customer_show_top">
-      <i class="fas fa-user-check ml-3 ad_customer_show_icon"></i>
-      <span class="ad_customer_show_title ml-2"><strong><%= @customer.username %></strong>さんの会員詳細</span>
+    <div class="col-5">
+      <i class="fas fa-user-check ml-3"></i>
+      <span class="ml-2"><strong><%= @customer.username %></strong>さんの会員詳細</span>
     </div>
+    <div class="col-5">
+      <%=link_to admin_customer_posts_path(@customer) do %>
+          <%= @customer.username %>さんの投稿一覧を見る
+      <% end %>
+    </div>
+
   </div>
   <div class="row">
     <div class='col-8 mx-auto'>
+    <!--admin CustomersHelperに「show_content」について記載-->
     <table class="table table-borderless">
+      <tr>
+        <th>プロフィール画像</th>
+        <td><%= image_tag @customer.get_profile_image(150,150) %></td>
+      </tr>
       <tr>
         <th>会員ID</th>
         <td><%= @customer.id %></td>
@@ -57,8 +68,8 @@
         <th></th>
         <td>
           <div class="text-right">
-          <%= link_to "一覧に戻る", admin_customers_path %>
-          <%=link_to "編集する", edit_admin_customer_path(@customer), class: "col-3" %>
+            <%= link_to "一覧に戻る", admin_customers_path %>
+            <%=link_to "編集する", edit_admin_customer_path(@customer), class: "col-3" %>
           </div>
         </td>
       </tr>

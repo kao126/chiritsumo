@@ -1,35 +1,56 @@
-<ul class="navbar-nav col-8 ml-5">
-  <li class="mx-1">
-    <%= link_to root_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-      <i class="fas fa-home"></i> Home
+<div class="container-fluid fixed-top header">
+  <nav class="w-75 navbar navbar-expand-lg navbar-light bg-light py-0 mx-auto">
+    <div class="navbar-brand col-md-4">
+    <%= link_to root_path do %>
+      <%= image_tag 'logo.png',size: '120x60' %>
     <% end %>
-  </li>
-  <li class="mx-1">
-    <%= link_to homes_about_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-      <i class="fas fa-link"></i> About
-    <% end %>
-  </li>
-  <li class="mx-1">
-    <%= link_to root_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-      <i class="fas fa-store-alt"></i> Shop
-    <% end %>
-  </li>
-  <li class="mx-1">
-    <%= link_to new_post_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-      <i class="fas fa-plus-circle"></i> New Post
-    <% end %>
-  </li>
-  <li class="dropdown mx-1">
-    <a class="nav-link bg-light text-secondary rounded-lg" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fas fa-ellipsis-h"></i>
-    </a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <%= link_to customer_profile_path(current_customer.username), class:"nav-link bg-light text-secondary" do %>
-        <i class="far fa-user-circle"></i> Profile
-      <% end %>
-      <%= link_to destroy_customer_session_path, method: :delete, class:"nav-link bg-light text-secondary" do %>
-        <i class="fas fa-sign-out-alt"></i> Log Out
-      <% end %>
     </div>
-  </li>
-</ul>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <!--検索フォーム-->
+      <%= render "public/searches/form" %>
+
+      <!--ナビゲーション-->
+      <ul class="navbar-nav col-8 ml-5">
+        <li class="mx-1">
+          <%= link_to root_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
+            <i class="fas fa-home"></i> Home
+          <% end %>
+        </li>
+        <li class="mx-1">
+          <%= link_to homes_about_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
+            <i class="fas fa-link"></i> About
+          <% end %>
+        </li>
+        <li class="mx-1">
+          <%= link_to root_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
+            <i class="fas fa-store-alt"></i> Shop
+          <% end %>
+        </li>
+        <li class="mx-1">
+          <%= link_to new_post_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
+            <i class="fas fa-plus-circle"></i> New Post
+          <% end %>
+        </li>
+        <li class="dropdown mx-1">
+          <a class="nav-link bg-light text-secondary rounded-lg" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-h"></i>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to customer_profile_path(current_customer.username), class:"nav-link bg-light text-secondary" do %>
+              <i class="far fa-user-circle"></i> Profile
+            <% end %>
+            <%= link_to destroy_customer_session_path, method: :delete, class:"nav-link bg-light text-secondary" do %>
+              <i class="fas fa-sign-out-alt"></i> Log Out
+            <% end %>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+

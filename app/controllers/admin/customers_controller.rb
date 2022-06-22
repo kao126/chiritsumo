@@ -6,6 +6,11 @@ class Admin::CustomersController < ApplicationController
     @customers = Customer.page(params[:page]).per(4)
   end
 
+  def post_index
+    @customer = Customer.find(params[:id])
+    @customer_posts = @customer.posts.where(status: "share").page(params[:page]).per(10).order(created_at: :DESC)
+  end
+
   def show
     @customer = Customer.find(params[:id])
   end

@@ -18,6 +18,11 @@ class Admin::Devise::SessionsController < Devise::SessionsController
   #   super
   # end
 
+  # ログイン後、遷移先「投稿一覧」へ変更
+  def after_sign_in_path_for(resource)
+    admin_posts_path
+  end
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.

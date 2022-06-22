@@ -24,6 +24,14 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
   padding-top: 40px;
 }
 
+.table thead th {
+  vertical-align: middle;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
 // トップページ
 .content_size {
   width: fit-content;

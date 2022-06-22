@@ -12,7 +12,13 @@
 
   <body>
     <header>
-        <%= render "layouts/header" %>
+      <% if customer_signed_in? %>
+        <%= render "layouts/customer_header" %>
+      <% elsif admin_signed_in? %>
+        <%= render "layouts/admin_header" %>
+      <% else %>
+        <%= render "layouts/visitor_header" %>
+      <% end %>
     </header>
     <main>
       <div class="container contents-flash">

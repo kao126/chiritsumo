@@ -1,7 +1,7 @@
 <div class="container-fluid fixed-top header">
   <nav class="w-75 navbar navbar-expand-lg navbar-light bg-light py-0 mx-auto">
     <div class="navbar-brand col-md-4">
-    <%= link_to admin_posts_path do %>
+    <%= link_to root_path do %>
       <%= image_tag 'logo.png',size: '120x60' %>
     <% end %>
     </div>
@@ -11,34 +11,33 @@
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <!--検索フォーム-->
-      <%= render "admin/searches/form" %>
+      <%= render "public/searches/form" %>
 
       <!--ナビゲーション-->
-      <ul class="navbar-nav col-8 ml-5">
-        <li class="mx-1">
-          <%= link_to admin_posts_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-            <i class="fas fa-home"></i> Home
-          <% end %>
-        </li>
-        <li class="mx-1">
-          <%= link_to admin_customers_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-            <i class="fas fa-users"></i> Users
-          <% end %>
-        </li>
+      <ul class="navbar-nav col-7 ml-5">
         <li class="mx-1">
           <%= link_to root_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-            <i class="fas fa-store-alt"></i> Shop
+          <i class="fas fa-home"></i> Home
           <% end %>
         </li>
         <li class="mx-1">
-          <%= link_to destroy_admin_session_path, method: :delete, class:"nav-link bg-light text-secondary rounded-lg" do %>
-            <i class="fas fa-sign-out-alt"></i> Log Out
+          <%= link_to homes_about_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
+          <i class="fas fa-link"></i> About
+          <% end %>
+        </li>
+        <li class="mx-1">
+          <%= link_to new_customer_registration_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
+          <i class="fas fa-user-plus"></i> Sign Up
+          <% end %>
+        </li>
+        <li class="mx-1">
+          <%= link_to new_customer_session_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
+          <i class="fas fa-sign-in-alt"></i> Log In
           <% end %>
         </li>
       </ul>
     </div>
   </nav>
 </div>
-
 
 

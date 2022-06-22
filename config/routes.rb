@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'posts/index'
+    get 'posts/show'
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # 顧客用
   # URL: /customers/...
@@ -35,7 +39,12 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :customers, only: [:index,:show,:update,:edit]
+    get '/customers/:id/posts' => 'customers#post_index', as: "customer_posts"
+    get '/explore/tags/:name' => "posts#tag", as: "post_tag"
+    get '/keywords/search' => "searches#search", as: "search"
+
+    resources :customers, only: [:index, :show, :update, :edit]
+    resources :posts, only: [:index, :show, :destroy]
   end
 
 end
