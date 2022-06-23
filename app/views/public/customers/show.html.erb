@@ -1,10 +1,19 @@
 <div class="container contents">
-  <div class="row">
-    <div class="col-4 text-center">
-      <%= image_tag @customer.get_profile_image(200,200) %>
+  <div class="row mb-5">
+    <div class="col-5 text-center">
+      <%= image_tag @customer.get_profile_image(200,200), class: "rounded-circle" %>
     </div>
-    <div class="col-8">
+    <div class="col-7">
       <!--他ユーザーには非表示-->
+      <div class="col">
+        <h3 class="color"><%= @customer.username %></h3>
+      </div>
+      <div class="col">
+        <%= @customer.introduction %>
+      </div>
+      <div class="col">
+        投稿：<%= @posts.count %> 件
+      </div>
       <% if @customer == current_customer %>
         <div class="col">
           <%= link_to "プロフィールを編集する", edit_customer_registration_path %>
@@ -16,12 +25,6 @@
           <%=link_to"下書き",post_draft_path(@customer.username) %>
         </div>
       <% end %>
-      <div class="col">
-        <%= @customer.username %>
-      </div>
-      <div class="col">
-        <%= @customer.introduction %>
-      </div>
     </div>
   </div>
 
@@ -30,7 +33,7 @@
       <% @posts.each do |post| %>
         <%= link_to post_path(post) do %>
         <div class="col text-center mb-4">
-            <%= image_tag post.get_image(300, 300) %>
+            <%= image_tag post.get_image(300, 300), class: "image_border" %>
         </div>
         <% end %>
       <% end %>

@@ -1,8 +1,17 @@
-<div class="container contents">
+<div class="container">
   <div class="about_background_image"><!--SDGsの一覧画像--></div>
-  <h4>今までの取り組み</h4>
-  <div>参加ユーザー数（累計）：<%= @post_customer.count %> 人</div>
-  <div>投稿数（累計）：<%= @posts.count %> 件</div>
+  <h2 class="text-center font-weight-bold mb-5">わたしたちは世界を変えられる</h2>
+
+  <h4 class="text-center font-weight-bold">SDGsとは...</h4>
+  <div class="w-75 mb-5 mx-auto text-center">
+    「Sustainable Development Goals（SDGs）」とは、2001年に策定されたミレニアム開発目標（MDGs）の後継として、
+    2015年9月の国連サミットで採択された「持続可能な開発のための2030アジェンダ」にて記載された，2030年までに持続可能でよりよい世界を目指す国際目標です。</br>
+    17のゴール・169のターゲットから構成され、地球上の「誰一人取り残さない」ことを誓っています。</br>
+  </div>
+
+  <h4 class="text-center font-weight-bold mb-2">今までの取り組み</h4>
+
+  <div class="text-center mb-3">参加ユーザー数：<%= @post_customer.count %> 人&emsp;/&emsp;投稿数：<%= @posts.count %> 件</div>
       <%= bar_chart @sum, width: "1050px", height: "400px", max: 100, colors: ["#e5243b", "#DDA63A", "#4C9F38", "#C5192D", "#FF3A21", "#26BDE2", "#FCC30B", "#A21942", "#FD6925", "#DD1367", "#FD9D24", "#BF8B2E", "#3F7E44", "#0A97D9", "#56C02B", "#00689D", "#19486A"] %>
-  <p>※当サイト上の集計です</p>
+  <p class="text-right">※当サイト上の集計です</p>
 </div>

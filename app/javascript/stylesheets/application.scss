@@ -19,6 +19,8 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
   padding-top: 80px;
 }
 
+
+// メイン
 // 全ページ用
 .contents {
   padding-top: 40px;
@@ -32,31 +34,100 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
   vertical-align: middle;
 }
 
+.link {
+  text-decoration: none !important;
+}
+
+.color {
+  color: #434343;
+}
+
 // トップページ
 .content_size {
   width: fit-content;
+}
+
+.post_image {
+  border-top: solid 2px #ddd;
+  border-bottom: solid 2px #ddd;
+}
+
+.post_category {
+  padding: 0.3rem;
+}
+
+.post_caption {
+  width: 470px;
+  padding: 0.2rem 0.5rem 0.5rem;
+}
+
+// カテゴリー色別
+.category_color_1 {
+  border: solid 3px #e5243b;
 }
 
 .category_color_2 {
   border: solid 3px #DDA63A;
 }
 
-.underline_2 {
-  border_bottom: solid 3px #DDA63A;
+.category_color_3 {
+  border: solid 3px #4C9F38;
 }
 
-.size {
-  width: 470px;
+.category_color_4 {
+  border: solid 3px #C5192D;
 }
 
-// アバウトページ
-// SDGs背景
-.about_background_image {
-  background-image: image-url("sdgs_ja.jpeg");
-  background-size: contain;
-  height: 500px;
-  width: 700px;
-  margin: 0 auto;
+.category_color_5 {
+  border: solid 3px #FF3A21;
+}
+
+.category_color_6 {
+  border: solid 3px #26BDE2;
+}
+
+.category_color_7 {
+  border: solid 3px #FCC30B;
+}
+
+.category_color_8 {
+  border: solid 3px #A21942;
+}
+
+.category_color_9 {
+  border: solid 3px #FD6925;
+}
+
+.category_color_10 {
+  border: solid 3px #DD1367;
+}
+
+.category_color_11 {
+  border: solid 3px #FD9D24;
+}
+
+.category_color_12 {
+  border: solid 3px #BF8B2E;
+}
+
+.category_color_13 {
+  border: solid 3px #3F7E44;
+}
+
+.category_color_14 {
+  border: solid 3px #0A97D9;
+}
+
+.category_color_15 {
+  border: solid 3px #56C02B;
+}
+
+.category_color_16 {
+  border: solid 3px #00689D;
+}
+
+.category_color_17 {
+  border: solid 3px #19486A;
 }
 
 // いいね機能
@@ -74,4 +145,42 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 
 .after_favorite_color:hover {
   color: #f73670;
+}
+
+// アバウトページ
+// SDGs背景
+.about_background_image {
+  background-image: url('/images/sdgs_ja.jpeg');
+  background-size: contain;
+  height: 500px;
+  width: 700px;
+  margin: 0 auto;
+}
+
+// カスタマーページ
+// showページ
+
+.image_border {
+  border: solid 2px #ddd;
+}
+
+// ポストページ
+// newページ
+
+.post-submit {
+  width: 112px;
+  height: 37px;
+  border-radius: 3px;
+  background-color: #326C86;
+  border: 1px solid #326C86;
+  color: #fff;
+}
+
+.post-draft {
+  width: 150px;
+  height: 37px;
+  border-radius: 3px;
+  background-color: #bbb;
+  border: 1px solid #bbb;
+  color: #fff;
 }

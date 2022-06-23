@@ -8,6 +8,7 @@
   </div>
   <div class="row">
     <div id="paginate" class="col-8 mx-auto">
+      <%= link_to "ユーザーネーム順（A-Z）", admin_customers_path(sort: 'username ASC') %> | <%= link_to "ステータス順", admin_customers_path(sort: 'is_deleted DESC') %>
       <%= render 'index', customers: @customers %>
     </div>
   </div>

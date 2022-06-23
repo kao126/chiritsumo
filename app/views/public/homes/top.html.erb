@@ -1,8 +1,8 @@
 <div class="container contents">
   <!--今までに投稿があるか確認-->
   <% if @posts.exists? %>
-    <!--会員としてサインインした場合-->
-    <% if customer_signed_in? %>
+    <!--会員（または、管理者）の場合-->
+    <% if customer_signed_in? || admin_signed_in? %>
     <div id="paginate">
       <%= render "top", posts: @posts %>
     </div>

@@ -15,12 +15,10 @@ class Public::CustomersController < ApplicationController
 
   def withdraw
     @customer = current_customer
-    if @customer.update(withdraw_params)
+    #ここでis_deletedカラムの値を"退会"に更新
+    @customer.update(is_deleted: true)
       reset_session
       redirect_to root_path, notice: "退会の手続きが完了しました。"
-    else
-      render "customer/show", alert: "手続きが完了していません！！入力内容をご確認のうえ再度お試しください。"
-    end
   end
 
   def favorites
@@ -49,10 +47,6 @@ class Public::CustomersController < ApplicationController
       :address_street,
       :address_building
     )
-  end
-
-  def withdraw_params
-    params.require(:customer).permit(:is_deleted)
   end
 
 end

@@ -1,17 +1,40 @@
 <div class="container contents">
+  <div class="w-50 row mx-auto">
   <%= render 'layouts/error', obj: @post %>
-  <!--投稿編集フォーム-->
-  <%= form_with model: @post do |f| %>
-    <%= f.file_field :image, accept: "image/*" %>
-    <%= f.text_area :caption %>
-    <%= f.select :category_id, Category.all.map { |category| [category.name, category.id] }, prompt: '選択してください' %>
+    <div class="w-100 border p-4 bg-light d-flex justify-content-center">
+      <div>
+        <h3 class="text-center mb-4 font-weight-bold">投稿編集</h3>
 
-    <% if @post.status == "draft" %>
-      <%= f.submit "投稿", :name => 'share' %>
-      <%= f.submit "下書きを更新", :name => 'draft' %>
-    <% else %>
-      <%= f.submit "更新" %>
-    <% end %>
+        <!--新規写真投稿フォーム-->
+        <%= form_with model: @post do |f| %>
+          <div class="form-group">
+            <%= f.label "投稿画像" %>：
+            <%= f.file_field :image, accept: "image/*" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_area :caption, placeholder: "コメントや#ハッシュタグも投稿しよう！（100文字まで）", size: "50x10" %>
+          </div>
+          <div class="form-group mb-4">
+            <%= f.label "カテゴリー" %>：
+            <%= f.select :category_id, Category.all.map { |category| [category.name, category.id] }, prompt: '選択してください' %>
+          </div>
 
-  <% end %>
+          <% if @post.status == "draft" %>
+            <div class="d-flex justify-content-around">
+              <div class="form-group col-md-3 text-center">
+                <%= f.submit "投稿", :name => 'share', class: "post-submit" %>
+              </div>
+              <div class="form-group col-md-5 text-center">
+                <%= f.submit '下書きを更新', :name => 'draft', class: "post-draft" %>
+              </div>
+            </div>
+          <% else %>
+            <div class="form-group col text-center">
+              <%= f.submit "更新", class: "post-submit" %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

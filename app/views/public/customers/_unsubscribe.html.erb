@@ -10,7 +10,7 @@
   </div>
   <%= form_with model: customer, url: customer_withdraw_path(customer.username), method: :patch do |f| %>
   <div class="col">
-    <%= f.check_box :is_deleted, :as => :boolean, checked: false %>
+    <%= f.check_box :is_deleted, required: true %>
     <%= f.label :is_deleted, "上記事項に同意する" %>
   </div>
   <div class="row mt-5">

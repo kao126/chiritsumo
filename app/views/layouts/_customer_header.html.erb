@@ -43,6 +43,9 @@
             <%= link_to customer_profile_path(current_customer.username), class:"nav-link bg-light text-secondary" do %>
               <i class="far fa-user-circle"></i> Profile
             <% end %>
+            <%= link_to edit_customer_registration_path, class:"nav-link bg-light text-secondary" do %>
+              <i class="fas fa-cog"></i> Setting
+            <% end %>
             <%= link_to destroy_customer_session_path, method: :delete, class:"nav-link bg-light text-secondary" do %>
               <i class="fas fa-sign-out-alt"></i> Log Out
             <% end %>
