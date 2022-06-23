@@ -164,12 +164,40 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
   border: solid 2px #ddd;
 }
 
+
+// editページ
+
+.user-cancel {
+  width: 150px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: #bbb;
+  border: 1px solid #bbb;
+  color: #fff;
+  line-height: 40px;
+
+}
+
+.user-cancel:hover {
+  color: #fff;
+}
+
+.user-submit {
+  width: 150px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: #326C86;
+  border: 1px solid #326C86;
+  color: #fff;
+}
+
+
 // ポストページ
 // newページ
 
 .post-submit {
   width: 112px;
-  height: 37px;
+  height: 40px;
   border-radius: 3px;
   background-color: #326C86;
   border: 1px solid #326C86;
@@ -178,7 +206,7 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 
 .post-draft {
   width: 150px;
-  height: 37px;
+  height: 40px;
   border-radius: 3px;
   background-color: #bbb;
   border: 1px solid #bbb;

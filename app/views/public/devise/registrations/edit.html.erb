@@ -1,14 +1,14 @@
-<div class="container contents mt-5">
-  <div class="row w-75 mx-auto">
-    <div class="col-3">
+<div class="container mt-5">
+  <div class="row ml-5">
+    <div class="col-3 ml-4 text-center">
       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">プロフィールを編集</a>
-        <a class="nav-link" id="v-pills-password-tab" data-toggle="pill" href="#v-pills-password" role="tab" aria-controls="v-pills-password" aria-selected="false">パスワードの変更</a>
-        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">退会の手続き</a>
+        <a class="nav-link" id="v-pills-password-tab" data-toggle="pill" href="#v-pills-password" role="tab" aria-controls="v-pills-password" aria-selected="false">パスワードを変更</a>
+        <a class="nav-link" id="v-pills-unsubscribe-tab" data-toggle="pill" href="#v-pills-unsubscribe" role="tab" aria-controls="v-pills-unsubscribe" aria-selected="false">退会の手続き</a>
         <!--<a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>-->
       </div>
     </div>
-    <div class="col-9">
+    <div class="col-8">
       <div class="tab-content" id="v-pills-tabContent">
         <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
           <%= render "public/customers/edit", customer: @customer %>
@@ -16,7 +16,7 @@
         <div class="tab-pane fade" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab">
           <%= render "public/devise/registrations/edit_form", customer: @customer, minimum_password_length: @minimum_password_length %>
         </div>
-        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+        <div class="tab-pane fade" id="v-pills-unsubscribe" role="tabpanel" aria-labelledby="v-pills-unsubscribe-tab">
           <%= render "public/customers/unsubscribe", customer: @customer %>
         </div>
       </div>
