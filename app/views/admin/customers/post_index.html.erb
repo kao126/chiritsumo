@@ -10,8 +10,12 @@
 
   <!--投稿写真一覧-->
   <div class="row">
-    <div id="paginate" class="col-10 mx-auto">
-      <%= render 'post_index', customer_posts: @customer_posts %>
-    </div>
+    <% if @customer_posts.exists? %>
+      <div id="paginate" class="col-10 mx-auto">
+        <%= render 'post_index', customer_posts: @customer_posts %>
+      </div>
+    <% else %>
+      <p>「<%= @customer.username %>」さんの投稿はありません。</p>
+    <% end %>
   </div>
 </div>

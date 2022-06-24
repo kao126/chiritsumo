@@ -1,15 +1,16 @@
 <div class='container contents'>
+  <% if @posts.exists? %>
+  <h4><i class="fas fa-search-plus"></i>「<%= @content %>」に関する投稿一覧</h4></br>
   <div class="row row-cols-3 mx-auto px-5">
-    <% if @posts.exists? %>
       <% @posts.each do |post| %>
         <%= link_to post_path(post) do %>
         <div class="col text-center mb-4">
-            <%= image_tag post.get_image(300, 300) %>
+            <%= image_tag post.get_image(300, 300), class: "image_border" %>
         </div>
         <% end %>
       <% end %>
-    <% else %>
-      <p>「<%= @content %>」に関する投稿はありません。</p>
-    <% end %>
   </div>
+  <% else %>
+    <p>「<%= @content %>」に関する投稿はありません。</p>
+  <% end %>
 </div>

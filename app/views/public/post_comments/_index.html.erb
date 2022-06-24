@@ -1,21 +1,20 @@
 <table>
-  <tbody>
-      <% post.post_comments.each do |post_comment| %>
-      <tr>
-
-        <td>
-          <%= link_to customer_profile_path(post_comment.customer.username) do %>
-            <%= image_tag post_comment.customer.get_profile_image(100,100) %><br>
-            <%= post_comment.customer.username %>
-          <% end %>
-        </td>
-        <td><%= post_comment.comment %></td>
-        <td>
-          <% if post_comment.customer == current_customer || current_admin %>
-            <%= link_to "削除", post_post_comment_path(post, post_comment), method: :delete, class: "btn btn-danger pull-right", remote: true %>
-          <% end %>
-        </td>
-      </tr>
+  <% post.post_comments.each do |post_comment| %>
+  <tr>
+    <td>
+      <%= link_to customer_profile_path(post_comment.customer.username) do %>
+        <%= image_tag post_comment.customer.get_profile_image(40,40), class: "rounded-circle" %>
+        <strong class="color link ml-2 mr-3"><%= post_comment.customer.username %></strong>
       <% end %>
-  </tbody>
+    </td>
+    <td><%= post_comment.comment %></td>
+    <td>
+      <% if post_comment.customer == current_customer || current_admin %>
+        <%= link_to post_post_comment_path(post, post_comment), method: :delete, class: "ml-2 text-danger link", remote: true do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
 </table>

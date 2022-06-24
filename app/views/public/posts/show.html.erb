@@ -1,42 +1,67 @@
 <div class="container contents">
-  <div>
-      <%= image_tag @post.get_image(470, 580) %>
+  <div class="w-100 px-1 py-1 d-flex category_color_<%= @post.category_id %>">
+  <div class="col-7 px-0">
+      <% if @post.category.present? %>
+      <div class="d-flex pb-1">
+        <div class="mr-auto">
+          <!--カテゴリー画像 / Homesヘルパーに記載-->
+          <%= post_category_image(@post.category_id) %>&emsp;
+          <%= @post.category.name %>
+        </div>
+          <!--いいね機能-->
+          <% if customer_signed_in? %>
+            <!--会員（または、ゲストユーザー）-->
+            <div id="favorites_btn_<%= @post.id %>" class="align-self-end mr-3"><%= render 'public/favorites/btn', post: @post %></div>
+          <% else %>
+            <!--管理者・ビジター-->
+            <%= render 'public/favorites/admin_favorites_btn', post: @post %>
+          <% end %>
+          <div id="favorites_counter_<%= @post.id %>" class="align-self-end mr-3"><%= render 'public/favorites/counter', post: @post %></div>
+      </div>
+      <% end %>
+      <%= image_tag @post.get_image(625, 625), class: "image_border" %>
   </div>
-  <div>
-    <!--いいね機能-->
-    <% if customer_signed_in? %>
-      <!--会員（または、ゲストユーザー）-->
-      <p id="favorites_btn_<%= @post.id %>"><%= render 'public/favorites/btn', post: @post %></p>
-    <% else %>
-      <!--管理者・ビジター-->
-      <%= render 'public/favorites/admin_favorites_btn', post: @post %>
-    <% end %>
-    <p id="favorites_counter_<%= @post.id %>"><%= render 'public/favorites/counter', post: @post %></p>
+  <div class="col-5 px-0">
+    <div class="h-100 d-flex align-items-start flex-column px-1 py-2">
+      <div class="w-100 col mb-auto">
+        <div class="mb-3 d-flex justify-content-between">
+          <div>
+            <%= image_tag @customer.get_profile_image(50, 50), class: "rounded-circle" %>&emsp;
+            <strong class="color"><%= @customer.username %></strong>
+          </div>
+          <!--他ユーザーには非表示-->
+          <% if @post.customer == current_customer %>
+            <div class="align-self-center">
+              <%= link_to edit_post_path(@post), class: "mr-3 color link" do %>
+                <i class="far fa-edit fa-lg"></i>
+              <% end %>
+              <%= link_to post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "mr-3 color link" do %>
+                <i class="far fa-trash-alt fa-lg"></i>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <div class="mb-3">
+          <!--ハッシュタグをリンク化 / Homesヘルパーに記載-->
+          <% if @post.caption.present? %>
+              <%= render_with_tags(@post.caption) %>
+          <% end %>
+        </div>
 
-    <% if @post.category.present? %>
-      <p><%= @post.category.name %></p>
-    <% end %>
+        <!--以下、コメント機能-->
+        <div id="post-comments-index">
+          <%= render "public/post_comments/index", post: @post %>
+        </div>
+      </div>
 
-    <!--ハッシュタグをリンク化 / Homesヘルパーに記載-->
-    <% if @post.caption.present? %>
-      <p><%= render_with_tags(@post.caption) %></p>
-    <% end %>
+      <div class="w-100">
+        <div id="post-comments-counter">
+          <%= render "public/post_comments/counter", post: @post %>
+        </div>
+        <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
+        </div>
+      </div>
 
   </div>
-
-  <!--他ユーザーには非表示-->
-  <% if @post.customer == current_customer %>
-    <%= link_to 'Edit', edit_post_path(@post) %>
-    <%= link_to 'Destroy', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' } %>
-  <% end %>
-
-  <!--以下、コメント機能-->
-  <div id="post-comments-counter">
-    <%= render "public/post_comments/counter", post: @post %>
   </div>
-  <div id="post-comments-index">
-    <%= render "public/post_comments/index", post: @post %>
-  </div>
-  <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
-
 </div>
