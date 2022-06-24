@@ -1,5 +1,5 @@
 <div class="col text-center mx-5">
-  <h4>退会手続きの前にご確認ください</h4>
+  <h4 class="font-weight-bold"><i class="fas fa-exclamation-circle"></i> 退会手続きの前にご確認ください</h4>
   <div class="mt-5">
     <p>
       退会処理を行うと、登録済みのプロフィール情報や</br>
@@ -14,11 +14,9 @@
     <%= f.label :is_deleted, "上記事項に同意する" %>
   </div>
   <div class="row mt-5">
-    <div class="col text-right">
-      <%= link_to "退会しない", customer_profile_path(customer.username), class:"btn btn-primary" %>
-    </div>
-    <div class="col text-left">
-      <%= f.submit "退会する", class:"btn btn-danger" %>
+    <div class="col d-flex justify-content-center">
+      <%= link_to "キャンセル", customer_profile_path(customer.username), class: "link user-cancel text-center mr-2" %>
+      <%= f.submit "退会する", class: "user-unsubscribe ml-5" %>
     </div>
   </div>
   <% end %>
