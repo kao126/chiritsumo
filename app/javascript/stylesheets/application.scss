@@ -46,6 +46,60 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
   color: #434343;
 }
 
+// サインアップ画面
+// ログイン画面
+.login-bg {
+  background-image: url('/images/login_image.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 660px;
+}
+
+.bg-opacity {
+  background-color: rgba(255,255,255,0.5);
+}
+
+.customer-devise-form {
+  border: 1px solid #326C86;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: rgba(255,255,255,0.9);
+}
+
+.devise-form-style{
+  height: 44px;
+  padding: 5px 5%;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+}
+
+.form-item .devise-form-style:focus{
+  outline: none;
+  border: 2px solid #326C86;
+}
+
+.customer-devise-submit {
+  width: 112px;
+  height: 37px;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 3px solid #326C86;
+  color: #326C86;
+  font-weight: bold;
+}
+
+.customer-devise-submit:hover {
+  border: 1px solid #326C86;
+  background-color: #326C86;
+  color: #fff;
+  cursor: pointer;
+}
+
+.customer-devise-submit :focus{
+  outline: none;
+}
+
+
 // トップページ
 .content_size {
   width: fit-content;
