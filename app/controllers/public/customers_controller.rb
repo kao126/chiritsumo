@@ -1,12 +1,15 @@
 class Public::CustomersController < ApplicationController
 
   before_action :authenticate_customer!
+  before_action :ensure_guest_customer, only: [:update, :withdraw]
+
 
   def show
     @customer = Customer.find_by(username: params[:username])
     @posts = @customer.posts.where(status: "share").order(created_at: :DESC)
     favorites = @customer.favorites.pluck(:post_id)
     @favorite_posts = Post.find(favorites)
+    @draft_posts = @customer.posts.where(status: "draft").order(created_at: :DESC)
 
   end
 
@@ -43,6 +46,13 @@ class Public::CustomersController < ApplicationController
       :address_street,
       :address_building
     )
+  end
+
+  def ensure_guest_customer
+    @customer = Customer.find(params[:id])
+    if @customer.email == 'guest@example.com'
+      redirect_to root_path, alert: 'ゲストユーザーのためこの動作は制限されています。'
+    end
   end
 
 end

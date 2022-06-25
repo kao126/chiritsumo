@@ -73,12 +73,6 @@ class Public::PostsController < ApplicationController
     @posts = @tag.posts
   end
 
-  def draft
-    @customer = current_customer
-    @customer_posts = @customer.posts.where(status: "draft").order(created_at: :DESC)
-  end
-
-
   private
   def post_params
     params.require(:post).permit(:image, :caption, :status, :category_id)

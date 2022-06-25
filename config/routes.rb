@@ -24,10 +24,9 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'homes/about'
     get '/:username' => "customers#show", as: "customer_profile"
-    patch '/:username/withdraw' => 'customers#withdraw', as: "customer_withdraw"
+    patch '/:id/withdraw' => 'customers#withdraw', as: "customer_withdraw"
     get '/explore/tags/:name' => "posts#tag", as: "post_tag"
     get '/keywords/search' => "searches#search", as: "search"
-    get '/:username/draft' => 'posts#draft', as: "post_draft"
 
     resources :posts, except: [:index] do
       resources :post_comments, only: [:create, :destroy]

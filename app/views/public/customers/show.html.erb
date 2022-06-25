@@ -1,51 +1,36 @@
 <div class="container contents">
   <div class="row mb-5">
-    <div class="col-5 text-center">
+    <div class="col-md-5 text-center">
       <%= image_tag @customer.get_profile_image(200,200), class: "rounded-circle" %>
     </div>
-    <div class="col-7 p-0">
-      <div class="col d-flex justify-content-start p-0">
-        <h3 class="color"><%= @customer.username %></h3>
+    <div class="col-md-7">
+      <div class="row">
+          <h3 class="color align-self-center"><%= @customer.username %></h3>
         <% if @customer == current_customer %>
-        <div class="col-4 ml-3 align-self-center">
-          <%= link_to "プロフィールを編集", edit_customer_registration_path %>
-        </div>
+          <%= link_to "プロフィールを編集", edit_customer_registration_path, class: "col-3 link user-setting text-center ml-4 mb-2 px-0" %>
         <% end %>
       </div>
-      <div class="col">
+      <div class="mt-2">
         <%= @customer.introduction %>
       </div>
     </div>
   </div>
 
-      <!--他ユーザーには非表示-->
-      <% if @customer == current_customer %>
-        <div class="col">
-        </div>
-        <div class="col">
-          <%=link_to"下書き",post_draft_path(@customer.username) %>
-        </div>
-
+  <!--他ユーザーには非表示-->
+  <% if @customer == current_customer %>
   <nav>
-    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">投稿：<%= @posts.count %> 件</a>
-      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">お気に入り</a>
-      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+    <div class="col-6 nav nav-tabs mx-auto text-center" id="nav-tab" role="tablist">
+      <a class="col nav-item nav-link color active" id="nav-post-tab" data-toggle="tab" href="#nav-post" role="tab" aria-controls="nav-post" aria-selected="true">投稿：<%= @posts.count %> 件</a>
+      <a class="col nav-item nav-link color" id="nav-favorite-tab" data-toggle="tab" href="#nav-favorite" role="tab" aria-controls="nav-favorite" aria-selected="false"><i class="far fa-heart"></i> お気に入り</a>
+      <a class="col nav-item nav-link color" id="nav-draft-tab" data-toggle="tab" href="#nav-draft" role="tab" aria-controls="nav-draft" aria-selected="false"><i class="fas fa-pen"></i> 下書き</a>
     </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><%= render 'public/customers/post_index', posts: @posts %></div>
-    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><%= render 'public/customers/favorites', favorite_posts: @favorite_posts %></div>
-    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+    <div class="tab-pane fade show active" id="nav-post" role="tabpanel" aria-labelledby="nav-post-tab"><%= render 'public/customers/post_index', posts: @posts %></div>
+    <div class="tab-pane fade" id="nav-favorite" role="tabpanel" aria-labelledby="nav-favorite-tab"><%= render 'public/customers/favorites', favorite_posts: @favorite_posts %></div>
+    <div class="tab-pane fade" id="nav-draft" role="tabpanel" aria-labelledby="nav-draft-tab"><%= render 'public/posts/draft', draft_posts: @draft_posts %></div>
   </div>
-
-    <% else %>
-      <%= render 'public/customers/post_index', posts: @posts %>
-
-
-    <% end %>
-
-
-
-
+  <% else %>
+    <%= render 'public/customers/post_index', posts: @posts %>
+  <% end %>
 </div>

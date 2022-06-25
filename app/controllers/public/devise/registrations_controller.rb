@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Public::Devise::RegistrationsController < Devise::RegistrationsController
-  before_action :ensure_normal_customer, only: [:update, :destroy]
+  before_action :ensure_guest_customer, only: [:update]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -48,7 +48,7 @@ class Public::Devise::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-  def ensure_normal_customer
+  def ensure_guest_customer
     if resource.email == 'guest@example.com'
       redirect_to root_path, alert: 'ゲストユーザーのためこの動作は制限されています。'
     end

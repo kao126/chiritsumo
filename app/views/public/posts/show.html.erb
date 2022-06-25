@@ -54,6 +54,7 @@
         </div>
       </div>
 
+      <% if @post.status == "share" %>
       <div class="w-100">
         <div id="post-comments-counter">
           <%= render "public/post_comments/counter", post: @post %>
@@ -61,6 +62,7 @@
         <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
         </div>
       </div>
+      <% end %>
 
   </div>
   </div>

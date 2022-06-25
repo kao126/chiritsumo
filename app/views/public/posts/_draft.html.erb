@@ -1,0 +1,14 @@
+<!--「下書き保存」の履歴があるか確認-->
+<% if draft_posts.present? %>
+  <div class="row contents row-cols-3 mx-auto px-5">
+    <% draft_posts.each do |post| %>
+      <%= link_to post_path(post) do %>
+      <div class="col text-center mb-4">
+        <%= image_tag post.get_image(300, 300), class: "image_border" %>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <p class="contents text-center">下書き保存した投稿はありません</p>
+<% end %>
