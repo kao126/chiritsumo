@@ -15,7 +15,8 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
   font-family: "Font Awesome 5 Free";
 }
 
-// flash（ヘッダーfixedのため）
+// flash
+// ヘッダーfixed分
 .contents-flash {
   padding-top: 10px;
 }
@@ -102,6 +103,22 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 
 
 // トップページ
+
+.guest-session {
+  border-radius: 3px;
+  border: 3px solid #7F8386;
+  color: #7F8386;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.guest-session:hover {
+  border: 3px solid #326C86;
+  background-color: #326C86;
+  color: #fff;
+  cursor: pointer;
+}
+
 .content_size {
   width: fit-content;
 }

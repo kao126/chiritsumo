@@ -50,7 +50,8 @@ class Public::Devise::RegistrationsController < Devise::RegistrationsController
 
   def ensure_guest_customer
     if resource.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーのためこの動作は制限されています。'
+      flash[:warning] = 'ゲストユーザーのためこの動作は制限されています。'
+      redirect_to root_path
     end
   end
 

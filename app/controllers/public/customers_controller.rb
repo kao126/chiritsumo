@@ -10,13 +10,13 @@ class Public::CustomersController < ApplicationController
     favorites = @customer.favorites.pluck(:post_id)
     @favorite_posts = Post.find(favorites)
     @draft_posts = @customer.posts.where(status: "draft").order(created_at: :DESC)
-
   end
 
   def update
     @customer = Customer.find_by(id: params[:id])
     @customer.update(customer_params)
-    redirect_to customer_profile_path(@customer.username), notice: "会員情報を更新しました！"
+    flash[:success] = "会員情報を更新しました！"
+    redirect_to customer_profile_path(@customer.username)
   end
 
   def withdraw
@@ -24,7 +24,8 @@ class Public::CustomersController < ApplicationController
     #ここでis_deletedカラムの値を"退会"に更新
     @customer.update(is_deleted: true)
       reset_session
-      redirect_to root_path, notice: "退会の手続きが完了しました。"
+      flash[:dark] = "退会の手続きが完了しました。"
+      redirect_to root_path
   end
 
   private
@@ -51,7 +52,8 @@ class Public::CustomersController < ApplicationController
   def ensure_guest_customer
     @customer = Customer.find(params[:id])
     if @customer.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーのためこの動作は制限されています。'
+      flash[:warning] = 'ゲストユーザーのためこの動作は制限されています。'
+      redirect_to root_path
     end
   end
 
