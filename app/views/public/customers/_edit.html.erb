@@ -1,59 +1,57 @@
-<div class="container">
-  <%= render "layouts/error", obj: customer %>
-  <h4 class="font-weight-bold color pl-3 mb-4"><i class="fas fa-user-cog"></i> 会員情報編集</h4>
-    <%= form_with model: customer, url: customer_path(customer), method: :patch do |f| %>
-      <table class="table-sm table-borderless ml-3">
-        <tr>
-          <th class="col"><%= f.label "プロフィール画像" %></th>
-          <td class="col"><%= f.file_field :profile_image, accept: 'image/*' %></td>
-        </tr>
-        <tr>
-          <th><%= f.label "名前" %></th>
-          <td>
-            <%= f.text_field :last_name, autofocus: true, placeholder: "(姓)" %>&nbsp;
-            <%= f.text_field :first_name, autofocus: true, placeholder: "(名)" %>
-          </td>
-        </tr>
-        <tr>
-          <th><%= f.label "フリガナ" %></th>
-          <td>
-            <%= f.text_field :last_name_kana, autofocus: true, placeholder: "(セイ)" %>&nbsp;
-            <%= f.text_field :first_name_kana, autofocus: true, placeholder: "(メイ)" %>
-          </td>
-        </tr>
-        <tr>
-          <th><%= f.label "ユーザーネーム" %></th>
-          <td><%= f.text_field :username, autofocus: true, placeholder: "半角英数字記号", class: "col" %></td>
-        </tr>
-        <tr>
-          <th><%= f.label "自己紹介欄" %></th>
-          <td><%= f.text_area :introduction, autofocus: true, placeholder: "100文字以内", size: "42x5" %></td>
-        </tr>
-        <tr>
-          <th><%= f.label "電話番号" %></th>
-          <td><%= f.text_field :telephone_number, autofocus: true, placeholder: "（例）05012345678", class: "col" %></td>
-        </tr>
-        <tr>
-          <th><%= f.label "メールアドレス" %></th>
-          <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "（例）xxx@gmail.co.jp", class: "col" %></td>
-        </tr>
-        <tr>
-          <th><%= f.label "郵便番号" %></th>
-          <td><%= f.text_field :postal_code, autofocus: true, placeholder: "（例）1050011", class: "col" %></td>
-        </tr>
-        <tr>
-          <th><%= f.label "住所" %></th>
-          <td>
-            <%= f.text_field :prefecture_code, autofocus: true, placeholder: "都道府県", class: "col mb-1" %>
-            <%= f.text_field :address_city, autofocus: true, placeholder: "市区町村", class: "col mb-1" %>
-            <%= f.text_field :address_street, autofocus: true, placeholder: "番地", class: "col mb-1" %>
-            <%= f.text_field :address_building, autofocus: true, placeholder: "建物名 部屋番号", class: "col" %>
-          </td>
-        </tr>
-      </table>
-      <div class="col my-4 d-flex justify-content-end">
-        <%= link_to "キャンセル", :back, class: "link user-cancel text-center mr-2" %>
-        <%= f.submit "更新する", class: "user-submit ml-5" %>
-      </div>
-    <% end %>
-</div>
+<%= render "layouts/error", obj: customer %>
+<h4 class="font-weight-bold color pl-3 mb-4"><i class="fas fa-user-cog"></i> 会員情報編集</h4>
+<%= form_with model: customer, url: customer_path(customer), method: :patch do |f| %>
+  <table class="table-sm table-borderless ml-3">
+    <tr>
+      <th class="col"><%= f.label "プロフィール画像" %></th>
+      <td class="col"><%= f.file_field :profile_image, accept: 'image/*' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label "名前" %></th>
+      <td>
+        <%= f.text_field :last_name, autofocus: true, placeholder: "(姓)" %>&nbsp;
+        <%= f.text_field :first_name, autofocus: true, placeholder: "(名)" %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label "フリガナ" %></th>
+      <td>
+        <%= f.text_field :last_name_kana, autofocus: true, placeholder: "(セイ)" %>&nbsp;
+        <%= f.text_field :first_name_kana, autofocus: true, placeholder: "(メイ)" %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label "ユーザーネーム" %></th>
+      <td><%= f.text_field :username, autofocus: true, placeholder: "半角英数字記号", class: "col" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label "自己紹介欄" %></th>
+      <td><%= f.text_area :introduction, autofocus: true, placeholder: "100文字以内", size: "42x5" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label "電話番号" %></th>
+      <td><%= f.text_field :telephone_number, autofocus: true, placeholder: "（例）05012345678", class: "col" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label "メールアドレス" %></th>
+      <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "（例）xxx@gmail.co.jp", class: "col" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label "郵便番号" %></th>
+      <td><%= f.text_field :postal_code, autofocus: true, placeholder: "（例）1050011", class: "col" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label "住所" %></th>
+      <td>
+        <%= f.text_field :prefecture_code, autofocus: true, placeholder: "都道府県", class: "col mb-1" %>
+        <%= f.text_field :address_city, autofocus: true, placeholder: "市区町村", class: "col mb-1" %>
+        <%= f.text_field :address_street, autofocus: true, placeholder: "番地", class: "col mb-1" %>
+        <%= f.text_field :address_building, autofocus: true, placeholder: "建物名 部屋番号", class: "col" %>
+      </td>
+    </tr>
+  </table>
+  <div class="col my-4 d-flex justify-content-end">
+    <%= link_to "キャンセル", :back, class: "link user-cancel text-center mr-2" %>
+    <%= f.submit "更新する", class: "user-submit ml-5" %>
+  </div>
+<% end %>

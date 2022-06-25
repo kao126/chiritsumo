@@ -5,6 +5,9 @@ class Public::CustomersController < ApplicationController
   def show
     @customer = Customer.find_by(username: params[:username])
     @posts = @customer.posts.where(status: "share").order(created_at: :DESC)
+    favorites = @customer.favorites.pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
+
   end
 
   def update
@@ -20,13 +23,6 @@ class Public::CustomersController < ApplicationController
       reset_session
       redirect_to root_path, notice: "退会の手続きが完了しました。"
   end
-
-  def favorites
-    @customer = Customer.find_by(username: params[:username])
-    favorites = @customer.favorites.pluck(:post_id)
-    @favorite_posts = Post.find(favorites)
-  end
-
 
   private
 

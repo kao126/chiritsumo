@@ -1,5 +1,5 @@
-<div class="container-fluid fixed-top header">
-  <nav class="w-75 navbar navbar-expand-lg navbar-light bg-light py-0 mx-auto">
+<div class="container fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light py-0">
     <div class="navbar-brand col-md-4">
     <%= link_to root_path do %>
       <%= image_tag 'logo.png',size: '120x60' %>
@@ -9,12 +9,12 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <div class="collapse navbar-collapse col-md-9" id="navbarTogglerDemo02">
       <!--検索フォーム-->
       <%= render "public/searches/form" %>
 
       <!--ナビゲーション-->
-      <ul class="navbar-nav col-8 ml-5">
+      <ul class="navbar-nav col-md-7">
         <li class="mx-1">
           <%= link_to root_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
             <i class="fas fa-home"></i> Home

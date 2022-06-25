@@ -1,11 +1,11 @@
-<div class="container mt-5">
-  <div class="row ml-5">
-    <div class="col-3 ml-4 text-center">
+<div class="container contents">
+  <div class="row px-1 py-1">
+    <div class="w-100 col d-flex justify-content-center">
+    <div class="col-3 text-center border-right">
       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link active color" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">プロフィールを編集</a>
         <a class="nav-link color" id="v-pills-password-tab" data-toggle="pill" href="#v-pills-password" role="tab" aria-controls="v-pills-password" aria-selected="false">パスワードを変更</a>
         <a class="nav-link color" id="v-pills-unsubscribe-tab" data-toggle="pill" href="#v-pills-unsubscribe" role="tab" aria-controls="v-pills-unsubscribe" aria-selected="false">退会の手続き</a>
-        <!--<a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>-->
       </div>
     </div>
     <div class="col-8">
@@ -20,6 +20,7 @@
           <%= render "public/customers/unsubscribe", customer: @customer %>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </div>

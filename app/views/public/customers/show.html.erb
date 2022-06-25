@@ -3,39 +3,49 @@
     <div class="col-5 text-center">
       <%= image_tag @customer.get_profile_image(200,200), class: "rounded-circle" %>
     </div>
-    <div class="col-7">
-      <!--他ユーザーには非表示-->
-      <div class="col">
+    <div class="col-7 p-0">
+      <div class="col d-flex justify-content-start p-0">
         <h3 class="color"><%= @customer.username %></h3>
+        <% if @customer == current_customer %>
+        <div class="col-4 ml-3 align-self-center">
+          <%= link_to "プロフィールを編集", edit_customer_registration_path %>
+        </div>
+        <% end %>
       </div>
       <div class="col">
         <%= @customer.introduction %>
       </div>
-      <div class="col">
-        投稿：<%= @posts.count %> 件
-      </div>
+    </div>
+  </div>
+
+      <!--他ユーザーには非表示-->
       <% if @customer == current_customer %>
         <div class="col">
-          <%= link_to "プロフィールを編集する", edit_customer_registration_path %>
-        </div>
-        <div class="col">
-          <%=link_to"お気に入り",customer_favorites_path(@customer.username) %>
         </div>
         <div class="col">
           <%=link_to"下書き",post_draft_path(@customer.username) %>
         </div>
-      <% end %>
+
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">投稿：<%= @posts.count %> 件</a>
+      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">お気に入り</a>
+      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
     </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><%= render 'public/customers/post_index', posts: @posts %></div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><%= render 'public/customers/favorites', favorite_posts: @favorite_posts %></div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
   </div>
 
-  <!--投稿写真一覧-->
-  <div class="row row-cols-3 mx-auto px-5">
-      <% @posts.each do |post| %>
-        <%= link_to post_path(post) do %>
-        <div class="col text-center mb-4">
-            <%= image_tag post.get_image(300, 300), class: "image_border" %>
-        </div>
-        <% end %>
-      <% end %>
-  </div>
+    <% else %>
+      <%= render 'public/customers/post_index', posts: @posts %>
+
+
+    <% end %>
+
+
+
+
 </div>

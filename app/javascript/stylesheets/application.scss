@@ -7,6 +7,7 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 // ヘッダー
 .header {
   background-color: #F8F9FA;
+  height: 70px;
 }
 
 // 検索窓にFont-Awesomeアイコン表示
@@ -16,7 +17,7 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 
 // flash（ヘッダーfixedのため）
 .contents-flash {
-  padding-top: 80px;
+  padding-top: 10px;
 }
 
 
