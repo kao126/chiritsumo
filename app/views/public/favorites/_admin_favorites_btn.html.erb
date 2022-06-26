@@ -1,12 +1,12 @@
 <% if post.favorites.count >= 1 %>
   <!--文字まで色変える-->
   <span class="after_favorite_color">
-    <i class="fas fa-heart" aria-hidden="true"></i>
+    <i class="fas fa-heart fa-lg" aria-hidden="true"></i>
     <%= post.favorites.count %>
   </span>
   <% else %>
   <span>
-    <i class="far fa-heart" aria-hidden="true"></i>
+    <i class="far fa-heart fa-lg" aria-hidden="true"></i>
     <%= post.favorites.count %>
   </span>
 <% end %>

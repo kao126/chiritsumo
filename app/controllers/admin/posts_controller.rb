@@ -8,6 +8,14 @@ class Admin::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @customer = @post.customer
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    @customer = @post.customer
+    redirect_to admin_customer_posts_path(@customer), notice: "投稿を削除しました！"
   end
 
   def tag
