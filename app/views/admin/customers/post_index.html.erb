@@ -1,11 +1,8 @@
-<div class="container contents">
+<div class="container">
 
   <div class="row my-4">
     <div class="col-1"></div>
-    <div class="col-10">
-      <i class="fas fa-images ml-3"></i>
-      <span class="col-5 text-center pb-2 ml-2"><strong><%= @customer.username %></strong>さんの投稿一覧</span>
-    </div>
+    <h5 class="col-5 mb-0 align-self-center"><i class="fas fa-images"></i> <strong><%= @customer.username %></strong>さんの投稿一覧</h5>
   </div>
 
   <!--投稿写真一覧-->
@@ -15,7 +12,9 @@
         <%= render 'post_index', customer_posts: @customer_posts %>
       </div>
     <% else %>
-      <p>「<%= @customer.username %>」さんの投稿はありません。</p>
+      <div class="col text-center">
+        「<%= @customer.username %>」さんの投稿はありません。
+      </div>
     <% end %>
   </div>
 </div>

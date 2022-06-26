@@ -1,9 +1,11 @@
 <!--バリデーションエラー文-->
 <% if obj.errors.any? %>
-<p class="text-danger"><%= obj.errors.count %>件のエラーが発生しています。</p>
- <ul>
-  <% obj.errors.full_messages.each do |message| %>
-   <li class="text-danger"><%= message %></li>
-  <% end %>
- </ul>
+<div class="col-5 mx-auto px-4">
+ <p class="text-danger"><%= obj.errors.count %>件のエラーが発生しています。</p>
+  <ul class="pl-3">
+   <% obj.errors.full_messages.each do |message| %>
+    <li class="text-danger"><%= message %></li>
+   <% end %>
+  </ul>
+ </div>
 <% end %>

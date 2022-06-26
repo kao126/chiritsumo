@@ -12,7 +12,7 @@
 
   <body>
     <header>
-      <div class="header">
+      <div class="header fixed-top">
       <% if customer_signed_in? %>
         <%= render "layouts/customer_header" %>
       <% elsif admin_signed_in? %>

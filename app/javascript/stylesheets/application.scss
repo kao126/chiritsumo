@@ -18,7 +18,43 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 // flash
 // ヘッダーfixed分
 .contents-flash {
-  padding-top: 10px;
+  padding-top: 80px;
+}
+
+
+// kaminariデザイン
+.pagination {
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.pagination li a {
+    border: none;
+    color: #2f3640;
+}
+
+.page-item.active .page-link {
+    background-color: #326C86;
+}
+
+.page-item:first-child .page-link {
+    border-radius: 0;
+}
+
+.page-item:last-child .page-link {
+    border-radius: 0;
+}
+
+.pagination li a:hover {
+    background-color: #326C86;
+    color: #fff
+}
+
+.pagination li a:focus {
+    background-color: #326C86;
+    color: #fff
 }
 
 
@@ -277,7 +313,6 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
   border: 1px solid #bbb;
   color: #fff;
   line-height: 40px;
-
 }
 
 .user-cancel:hover {
@@ -325,4 +360,21 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
   background-color: #bbb;
   border: 1px solid #bbb;
   color: #fff;
+}
+
+// adminページ
+
+.user-edit {
+  width: 150px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: #326C86;
+  border: 1px solid #326C86;
+  color: #fff;
+  line-height: 40px;
+}
+
+.user-edit:hover {
+  color: #fff;
+  cursor: pointer;
 }
