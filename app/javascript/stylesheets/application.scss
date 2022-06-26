@@ -48,6 +48,11 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
   color: #434343;
 }
 
+// renderの際にフォーム崩れを防止
+.field_with_errors {
+  display: contents;
+}
+
 // サインアップ画面
 // ログイン画面
 .login-bg {
@@ -258,6 +263,10 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 // editページ
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   background-color: #326C86;
+}
+
+.prefecture-height {
+  height: 30px;
 }
 
 .user-cancel {

@@ -14,7 +14,7 @@
           <%= render "public/customers/edit", customer: @customer %>
         </div>
         <div class="tab-pane fade" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab">
-          <%= render "public/devise/registrations/edit_form", customer: @customer, minimum_password_length: @minimum_password_length %>
+          <%= render "public/devise/registrations/password_form", customer: @customer, minimum_password_length: @minimum_password_length %>
         </div>
         <div class="tab-pane fade" id="v-pills-unsubscribe" role="tabpanel" aria-labelledby="v-pills-unsubscribe-tab">
           <%= render "public/customers/unsubscribe", customer: @customer %>

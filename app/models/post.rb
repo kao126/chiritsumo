@@ -11,13 +11,19 @@ class Post < ApplicationRecord
 
   validates_each :image do |record, attr, value|
     if record.status == "share"
-      record.errors.add(attr, '：画像を選択してください。') if record.image.blank?
+      record.errors.add(attr, '：「画像」を選択してください。') if record.image.blank?
+    end
+  end
+
+  validates_each :caption do |record, attr, value|
+    if record.status == "share"
+      record.errors.add(attr, '：200文字以内で入力してください。') if record.caption.length > 200
     end
   end
 
   validates_each :category_id do |record, attr, value|
     if record.status == "share"
-      record.errors.add(attr, '：カテゴリーを選択してください。') if record.category_id.nil?
+      record.errors.add(attr, '：「カテゴリー」を選択してください。') if record.category_id.nil?
     end
   end
 

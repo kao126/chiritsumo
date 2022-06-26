@@ -16,14 +16,16 @@ class Public::PostsController < ApplicationController
       if @post.save
         redirect_to customer_profile_path(current_customer.username), notice: "下書きを保存しました！"
       else
-        render :new, alert: "登録できませんでした。入力内容をご確認のうえ再度お試しください。"
+        flash.now[:alert] = "登録できませんでした。入力内容をご確認のうえ再度お試しください。"
+        render :new
       end
     else
       # 投稿ボタンを押下した場合
       if @post.save
         redirect_to root_path, notice: "投稿しました！"
       else
-        render :new, alert: "投稿できませんでした。入力内容をご確認のうえ再度お試しください。"
+        flash.now[:alert] = "投稿できませんでした。入力内容をご確認のうえ再度お試しください。"
+        render :new
       end
     end
   end
@@ -47,14 +49,17 @@ class Public::PostsController < ApplicationController
       if @post.update(post_params)
         redirect_to root_path, notice: "投稿しました！"
       else
-        render :edit, alert: "投稿できませんでした。入力内容をご確認のうえ再度お試しください。"
+        @post.status = Post.statuses[:draft]
+        flash.now[:alert] = "投稿できませんでした。入力内容をご確認のうえ再度お試しください。"
+        render :edit
       end
     else
       # 下書き（もしくは、更新）ボタンを押下した場合
       if @post.update(post_params)
         redirect_to post_path(@post), notice: "下書きを保存しました！"
       else
-        render :edit, alert: "登録できませんでした。入力内容をご確認のうえ再度お試しください。"
+        flash.now[:alert] = "登録できませんでした。入力内容をご確認のうえ再度お試しください。"
+        render :edit
       end
 
     end

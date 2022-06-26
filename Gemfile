@@ -63,6 +63,7 @@ gem 'seed-fu'
 gem 'kaminari','~> 1.2.1'
 gem "chartkick"
 gem 'devise-i18n'
+gem 'jp_prefecture'
 
 
 gem 'dotenv-rails'

@@ -11,7 +11,7 @@
             <%= form_with model: @customer, url: customer_registration_path, method: :post do |f| %>
             <div class="form-item mt-4 mb-2 col">
               <%= f.label "ユーザーネーム" %>
-              <%= f.text_field :username, autofocus: true, autocomplete: 'off', placeholder: "半角英数字記号[@ _ -]", class:"col devise-form-style" %>
+              <%= f.text_field :username, autofocus: true, autocomplete: 'off', placeholder: "半角英数字記号[@ _ -]（6~20文字）", class:"col devise-form-style" %>
             </div>
             <div class="form-item my-2 col">
               <%= f.label "メールアドレス" %>

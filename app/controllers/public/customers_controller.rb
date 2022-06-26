@@ -14,9 +14,13 @@ class Public::CustomersController < ApplicationController
 
   def update
     @customer = Customer.find_by(id: params[:id])
-    @customer.update(customer_params)
-    flash[:success] = "会員情報を更新しました！"
-    redirect_to customer_profile_path(@customer.username)
+    if @customer.update(customer_params)
+      redirect_to customer_profile_path(@customer.username), notice: "会員情報を更新しました！"
+    else
+      @customer.username = current_customer.username
+      flash.now[:alert] = "会員情報変更に失敗しました。入力内容をご確認ください。"
+      render "public/devise/registrations/edit"
+    end
   end
 
   def withdraw
