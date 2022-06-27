@@ -16,6 +16,7 @@ class Customer < ApplicationRecord
   validates :last_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: "にはカタカナを入力ください。" }
   validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: "にはカタカナを入力ください。" }
   validates :username, presence: true, uniqueness: true, length: { in: 6..20 }, format: { with: /\A[\w@-]*[A-Za-z][\w@-]*\z/, message: "には半角英数字記号[@_-]を入力ください。" }
+  validates :introduction, length: { maximum: 100 }
   validates :telephone_number, format: { with: /\A0[5789]0[-]?\d{4}[-]?\d{4}\z/, message: "にはハイフンを入力してください。" }
   validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "にはハイフンを入力してください。" }
 

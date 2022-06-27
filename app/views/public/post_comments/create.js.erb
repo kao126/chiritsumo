@@ -1,3 +1,5 @@
-$('.comment-textarea').val("")
 $('#post-comments-counter').html("<%= j(render 'public/post_comments/counter', post: @comment.post) %>")
 $('#post-comments-index').html("<%= j(render 'public/post_comments/index', post: @comment.post) %>")
+$('#post-comments-error').html("<%= j(render 'layouts/error', obj: @comment) %>");
+$('.comment-textarea').val("")
+$('#input-counter').html("0/50")

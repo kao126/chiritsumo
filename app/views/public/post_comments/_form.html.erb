@@ -1,6 +1,25 @@
 <%= form_with(model:[post, post_comment], local: false) do |f| %>
-  <%= f.text_area :comment, rows:'2',placeholder: "コメントをここに", class: "w-100 comment-textarea" %>
+  <div class="d-flex justify-content-between">
+    <div id="post-comments-counter">
+      <%= render "public/post_comments/counter", post: @post %>
+    </div>
+    <div id="input-counter">0/50</div>
+  </div>
+  <%= f.text_area :comment, rows:'2',placeholder: "コメントをここに（最大50文字）", class: "w-100 comment-textarea", id: "input-text" %>
   <div class="text-right">
     <%= f.submit "送信する", class: "post-submit" %>
   </div>
 <% end %>
+<script>
+  $(function(){
+   $("#input-text").on("keyup", function() {
+     let countNum = String($(this).val().length);
+     $("#input-counter").text(countNum + "/50");
+     if (countNum > 50) {
+      $("#input-counter").css("color","red");
+    } else {
+      $("#input-counter").css("color","black");
+    }
+   });
+  });
+</script>

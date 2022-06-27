@@ -1,4 +1,7 @@
 <div class="container contents">
+  <div id="post-comments-error">
+    <%= render 'layouts/error', obj: @comment %>
+  </div>
   <div class="w-100 px-1 py-1 d-flex category_color_<%= @post.category_id %>">
     <div class="col-7 px-0">
       <!--カテゴリーがない場合(下書き)は非表示-->
@@ -59,10 +62,7 @@
         <!--下書き状態のときは非表示-->
         <% if @post.status == "share" %>
           <div class="w-100">
-            <div id="post-comments-counter">
-              <%= render "public/post_comments/counter", post: @post %>
-            </div>
-            <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
+            <%= render "public/post_comments/form", post: @post, post_comment: @comment %>
           </div>
         <% end %>
       </div>

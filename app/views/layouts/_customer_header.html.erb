@@ -26,8 +26,8 @@
           <% end %>
         </li>
         <li class="mx-1">
-          <%= link_to root_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-            <i class="fas fa-store-alt"></i> Shop
+          <%= link_to customer_profile_path(current_customer.username), class:"nav-link bg-light text-secondary" do %>
+            <i class="fas fa-user-circle"></i> Profile
           <% end %>
         </li>
         <li class="mx-1">
@@ -40,9 +40,6 @@
             <i class="fas fa-ellipsis-h"></i>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to customer_profile_path(current_customer.username), class:"nav-link bg-light text-secondary" do %>
-              <i class="far fa-user-circle"></i> Profile
-            <% end %>
             <%= link_to edit_customer_registration_path, class:"nav-link bg-light text-secondary" do %>
               <i class="fas fa-cog"></i> Setting
             <% end %>

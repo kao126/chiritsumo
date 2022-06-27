@@ -12,7 +12,8 @@
             <%= f.file_field :image, accept: "image/*" %>
           </div>
           <div class="form-group">
-            <%= f.text_area :caption, placeholder: "コメントや#ハッシュタグも投稿しよう！（100文字まで）", size: "50x10" %>
+            <div id="input-counter" class="text-right">0/200</div>
+            <%= f.text_area :caption, placeholder: "コメントや#ハッシュタグも投稿しよう！（最大200文字）", size: "50x10", id: "input-text" %>
           </div>
           <div class="form-group mb-4">
             <%= f.label "カテゴリー" %>：
@@ -38,3 +39,16 @@
     </div>
   </div>
 </div>
+<script>
+  $(function(){
+   $("#input-text").on("keyup", function() {
+     let countNum = String($(this).val().length);
+     $("#input-counter").text(countNum + "/200");
+     if (countNum > 200) {
+      $("#input-counter").css("color","red");
+    } else {
+      $("#input-counter").css("color","black");
+    }
+   });
+  });
+</script>
