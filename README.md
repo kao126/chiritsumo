@@ -18,8 +18,33 @@
 - SDGs内の17目標達成のために取り組んだことを投稿できる
 - コミュニティ全体でどのくらい対応しているのかグラフで可視化できる
 
+## 機能一覧
+- ゲストログイン
+- 会員機能
+ * 投稿機能
+ * 投稿の公開・非公開(下書き)設定機能
+ * 投稿検索機能(キーワード検索)
+ * 投稿検索機能(ハッシュタグ検索)
+ * いいね(ブックマーク)機能
+ * いいね(ブックマーク)一覧表示機能
+ * コメント機能
+ * 投稿のグラフ化（chartkick）
+
+- 管理者機能
+ * ユーザー管理機能
+ * 投稿管理機能
+ * コメント管理機能
+
 ## 設計書
-<...>
+### ER図
+![ポートフォリオ制作_ER図](https://user-images.githubusercontent.com/76607249/175929810-3cc6f809-e783-4d2f-8f27-03d22b44b8f5.jpg)
+
+### テーブル定義書
+- https://docs.google.com/spreadsheets/d/1YvmasrvPGZiComU3AbfZHyGilstKPggGtmtsbhqb09Q/edit?usp=sharing
+
+### アプリケーション詳細設計書
+- https://docs.google.com/spreadsheets/d/1mgF3abJWFw7yCjlhy3bBllkd6EcjsB4FZH5FGBLCeYU/edit?usp=sharing
+
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -36,6 +61,6 @@
 
 
 
-## 注意事項
-- 「rails db:seed_fu」でデータの読み込み
-- 管理者ログイン情報(URL："/admins/sign_in", Email：admin@admin.com / Pass：000000)
+## 確認事項
+- 「rails db:seed_fu」で初期データの読み込み
+- 管理者ログイン情報(URL：".../admins/sign_in", Email：admin@admin.com / Pass：000000)
