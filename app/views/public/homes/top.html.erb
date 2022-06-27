@@ -1,6 +1,8 @@
 <div class="container contents">
   <!--今までに投稿があるか確認-->
-  <% if @posts.exists? %>
+  <% if @posts.empty? %>
+    <p class="text-center">写真を投稿してユーザーとシェアしよう！！</p>
+  <% end %>
     <!--会員（または、管理者）の場合-->
     <% if customer_signed_in? || admin_signed_in? %>
       <div id="paginate">
@@ -14,7 +16,4 @@
         <%= render "top", posts: @posts %>
       </div>
     <% end %>
-  <% else %>
-    <p>写真を投稿してユーザーとシェアしよう！！</p>
-  <% end %>
 </div>

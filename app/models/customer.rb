@@ -11,14 +11,14 @@ class Customer < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-  validates :last_name, format: { with: /\A[一-龥]+\z/, message: "には漢字を入力ください。" }
-  validates :first_name, format: { with: /\A[一-龥ぁ-ん]/, message: "には漢字/ひらがなを入力ください。" }
-  validates :last_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: "にはカタカナを入力ください。" }
-  validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: "にはカタカナを入力ください。" }
+  validates :last_name, format: { with: /\A[一-龥]+\z/, message: "には漢字を入力ください。" }, allow_blank: true
+  validates :first_name, format: { with: /\A[一-龥ぁ-ん]/, message: "には漢字/ひらがなを入力ください。" }, allow_blank: true
+  validates :last_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: "にはカタカナを入力ください。" }, allow_blank: true
+  validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: "にはカタカナを入力ください。" }, allow_blank: true
   validates :username, presence: true, uniqueness: true, length: { in: 6..20 }, format: { with: /\A[\w@-]*[A-Za-z][\w@-]*\z/, message: "には半角英数字記号[@_-]を入力ください。" }
-  validates :introduction, length: { maximum: 100 }
-  validates :telephone_number, format: { with: /\A0[5789]0[-]?\d{4}[-]?\d{4}\z/, message: "にはハイフンを入力してください。" }
-  validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "にはハイフンを入力してください。" }
+  validates :introduction, length: { maximum: 100 }, allow_blank: true
+  validates :telephone_number, format: { with: /\A0[5789]0[-]?\d{4}[-]?\d{4}\z/, message: "にはハイフンを入力してください。" }, allow_blank: true
+  validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "にはハイフンを入力してください。" }, allow_blank: true
 
 
   def get_profile_image(width, height)
