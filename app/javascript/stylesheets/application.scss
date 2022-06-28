@@ -255,7 +255,7 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 // アバウトページ
 // SDGs背景
 .about_background_image {
-  background-image: image-url("sdgs_ja.jpeg");
+  background-image: url("../images/sdgs_ja.jpg");
   background-size: contain;
   height: 500px;
   width: 700px;

@@ -30,8 +30,8 @@ class Post < ApplicationRecord
   #投稿の写真がなかった場合（Active Storage）
   def get_image(width, height)
     unless image.attached?
-      file_path = Rails.root.join('app/assets/images/no-image.jpeg')
-      image.attach(io: File.open(file_path), filename: 'no-image.jpeg', content_type: 'image/jpeg')
+      file_path = Rails.root.join('app/assets/images/no-image.jpg')
+      image.attach(io: File.open(file_path), filename: 'no-image.jpg', content_type: 'image/jpeg')
     end
     image.variant(resize_to_fill: [width, height]).processed
   end
