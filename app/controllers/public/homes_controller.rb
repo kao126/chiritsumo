@@ -5,7 +5,7 @@ class Public::HomesController < ApplicationController
 
   def about
     @post_customer = Post.pluck(:customer_id).uniq
-    @posts = Post.all
-    @sum = Post.joins(:category).group("categories.name").order('category_id ASC').count
+    @posts = Post.where(status: "share").all
+    @sum = Post.where(status: "share").joins(:category).group("categories.name").order('category_id ASC').count
   end
 end
