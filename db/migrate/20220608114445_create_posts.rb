@@ -3,6 +3,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
     create_table :posts do |t|
       t.text :caption
       t.integer :status, default: 1
+      t.float :point
       t.integer :customer_id
       t.integer :category_id
 

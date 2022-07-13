@@ -21,6 +21,8 @@ class Public::PostsController < ApplicationController
       end
     else
       # 投稿ボタンを押下した場合
+      # ポイント付与
+      @post.point = 0.5
       if @post.save
         redirect_to root_path, notice: "投稿しました！"
       else
@@ -44,6 +46,8 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     if params[:share]
       # 投稿ボタンを押下した場合
+      # ポイント付与
+      @post.point = 0.5
       @post.status = Post.statuses[:share]
       @post.touch(:created_at)
       if @post.update(post_params)
@@ -80,7 +84,7 @@ class Public::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:image, :caption, :status, :category_id)
+    params.require(:post).permit(:image, :caption, :status, :point, :category_id)
   end
 
   def ensure_correct_customer

@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 2022_06_13_055759) do
   create_table "posts", force: :cascade do |t|
     t.text "caption"
     t.integer "status", default: 1
+    t.float "point"
     t.integer "customer_id"
     t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
