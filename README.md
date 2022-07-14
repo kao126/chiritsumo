@@ -38,7 +38,7 @@
 
 ## 設計書
 ### ER図
-![ポートフォリオ制作_ER図](https://user-images.githubusercontent.com/76607249/175929810-3cc6f809-e783-4d2f-8f27-03d22b44b8f5.jpg)
+![ポートフォリオ制作_ER図](https://user-images.githubusercontent.com/76607249/178893738-c184a8e4-5805-4a79-8aa2-14151b1fbe0e.jpg)
 
 ### テーブル定義書
 - https://docs.google.com/spreadsheets/d/1YvmasrvPGZiComU3AbfZHyGilstKPggGtmtsbhqb09Q/edit?usp=sharing
