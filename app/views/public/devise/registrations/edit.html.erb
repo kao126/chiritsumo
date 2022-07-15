@@ -6,7 +6,6 @@
       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link active color" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">プロフィールを編集</a>
         <a class="nav-link color" id="v-pills-password-tab" data-toggle="pill" href="#v-pills-password" role="tab" aria-controls="v-pills-password" aria-selected="false">パスワードを変更</a>
-        <a class="nav-link color" id="v-pills-point-tab" data-toggle="pill" href="#v-pills-point" role="tab" aria-controls="v-pills-point" aria-selected="false">ポイント履歴</a>
         <a class="nav-link color" id="v-pills-unsubscribe-tab" data-toggle="pill" href="#v-pills-unsubscribe" role="tab" aria-controls="v-pills-unsubscribe" aria-selected="false">退会の手続き</a>
       </div>
     </div>
@@ -17,9 +16,6 @@
         </div>
         <div class="tab-pane fade" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab">
           <%= render "public/devise/registrations/password_form", customer: @customer, minimum_password_length: @minimum_password_length %>
-        </div>
-        <div class="tab-pane fade" id="v-pills-point" role="tabpanel" aria-labelledby="v-pills-point-tab">
-          <%= render "public/customers/point", customer: @customer %>
         </div>
         <div class="tab-pane fade" id="v-pills-unsubscribe" role="tabpanel" aria-labelledby="v-pills-unsubscribe-tab">
           <%= render "public/customers/unsubscribe", customer: @customer %>

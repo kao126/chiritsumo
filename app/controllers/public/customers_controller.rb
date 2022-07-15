@@ -8,6 +8,7 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find_by(username: params[:username])
     @posts = @customer.posts.where(status: "share").order(created_at: :DESC)
     @points_sum = @posts.sum(:point)
+    @point_posts = @posts.page(params[:page]).per(10)
     @favorite_posts = @customer.favorites.order(created_at: :DESC)
     @draft_posts = @customer.posts.where(status: "draft").order(created_at: :DESC)
   end
