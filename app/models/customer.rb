@@ -5,6 +5,9 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  include JpPrefecture
+  jp_prefecture :prefecture_code
+
   has_one_attached :profile_image
 
   has_many :posts, dependent: :destroy
@@ -57,7 +60,7 @@ class Customer < ApplicationRecord
   end
 
   def address
-    self.prefecture_code + self.address_city + self.address_street + "　" + self.address_building
+    self.prefecture.name + self.address_city + self.address_street + "　" + self.address_building
   end
 
 end
