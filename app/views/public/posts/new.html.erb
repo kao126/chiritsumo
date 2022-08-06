@@ -1,29 +1,28 @@
-<div class="container contents">
+<div class="container pt-5">
   <%= render 'layouts/error', obj: @post %>
-  <div class="w-50 row mx-auto">
-    <div class="w-100 border p-4 bg-light d-flex justify-content-center">
+  <div class="row d-flex justify-content-center">
+    <div class="border p-4 bg-light">
       <div>
         <h3 class="text-center mb-4 font-weight-bold">新規投稿</h3>
 
         <!--新規写真投稿フォーム-->
         <%= form_with model: @post do |f| %>
-          <div class="form-group">
-            <%= f.label "投稿画像" %>：
-            <%= f.file_field :image, accept: "image/*" %>
+          <div class="custom-file">
+            <%= f.file_field :image, accept: "image/*", class: "custom-file-input", id: "customFile" %>
+            <%= f.label "画像ファイルを選択…", class: "custom-file-label" %>
           </div>
-          <div class="form-group">
+          <div class="form-group my-3">
             <div id="input-counter" class="text-right">0/200</div>
-            <%= f.text_area :caption, placeholder: "コメントや#ハッシュタグも投稿しよう！（最大200文字）", size: "50x10", id: "input-text" %>
+            <%= f.text_area :caption, placeholder: "コメント・#ハッシュタグ投稿をしよう！（最大200文字）", size: "50x10", id: "input-text", class: "form-control" %>
           </div>
           <div class="form-group mb-4">
-            <%= f.label "カテゴリー" %>：
-            <%= f.select :category_id, Category.all.map { |category| [category.name, category.id] }, prompt: '選択してください' %>
+            <%= f.select :category_id, Category.all.map { |category| [category.name, category.id] }, {prompt: 'カテゴリー選択してください'}, class: "form-control" %>
           </div>
           <div class="d-flex justify-content-around">
-            <div class="form-group col-md-3 text-center">
+            <div class="form-group">
               <%= f.submit '投稿', class: "post-submit" %>
             </div>
-            <div class="form-group col-md-5 text-center">
+            <div class="form-group">
               <%= f.submit '下書きに保存', :name => 'draft', class: "post-draft" %>
             </div>
           </div>
@@ -32,7 +31,10 @@
     </div>
   </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
 <script>
+  bsCustomFileInput.init();
+
   $(function(){
    $("#input-text").on("keyup", function() {
      let countNum = String($(this).val().length);
