@@ -12,7 +12,7 @@
 
   <body>
     <header>
-      <div class="header fixed-top">
+      <div>
       <% if customer_signed_in? %>
         <%= render "layouts/customer_header" %>
       <% elsif admin_signed_in? %>
@@ -23,11 +23,6 @@
       </div>
     </header>
     <main>
-      <div class="container contents-flash">
-        <% flash.each do |message_type, message| %>
-          <div class="alert alert-<%= message_type %> text-center"><%= message %></div>
-        <% end %>
-      </div>
       <%= yield %>
     </main>
   </body>

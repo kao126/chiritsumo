@@ -64,9 +64,3 @@ gem 'kaminari','~> 1.2.1'
 gem "chartkick"
 gem 'devise-i18n'
 gem 'jp_prefecture'
-
-
-gem 'dotenv-rails'
-group :production do
-  gem 'mysql2'
-end
