@@ -1,45 +1,46 @@
-<div class="container fixed-top">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light py-0">
-    <div class="navbar-brand col-md-4">
-    <%= link_to root_path do %>
-      <%= image_tag 'logo.png',size: '120x60' %>
-    <% end %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <div class="navbar-brand mr-0 mr-lg-auto">
+      <%= link_to root_path do %>
+        <%= image_tag 'logo.png',size: '120x60' %>
+      <% end %>
     </div>
+
+    <!--検索フォーム-->
+    <%= render "public/searches/form" %>
+
+    <!--ナビゲーション-->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse col-md-9" id="navbarTogglerDemo02">
-      <!--検索フォーム-->
-      <%= render "public/searches/form" %>
-
-      <!--ナビゲーション-->
-      <ul class="navbar-nav col-md-7">
-        <li class="mx-1">
+    <div class="collapse navbar-collapse text-center col-lg-5" id="navbarTogglerDemo02">
+      <ul class="navbar-nav ml-lg-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
           <%= link_to root_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
             <i class="fas fa-home"></i> Home
           <% end %>
         </li>
-        <li class="mx-1">
+        <li class="nav-item">
           <%= link_to homes_about_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
             <i class="fas fa-link"></i> About
           <% end %>
         </li>
-        <li class="mx-1">
+        <li class="nav-item">
           <%= link_to customer_profile_path(current_customer.username), class:"nav-link bg-light text-secondary rounded-lg" do %>
             <i class="fas fa-user-circle"></i> Profile
           <% end %>
         </li>
-        <li class="mx-1">
+        <li class="nav-item">
           <%= link_to new_post_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-            <i class="fas fa-plus-circle"></i> New Post
+            <i class="fas fa-plus-circle"></i> Post
           <% end %>
         </li>
-        <li class="dropdown mx-1">
+        <li class="nav-item dropdown">
           <a class="nav-link bg-light text-secondary rounded-lg" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-ellipsis-h"></i>
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
             <%= link_to edit_customer_registration_path, class:"nav-link bg-light text-secondary" do %>
               <i class="fas fa-cog"></i> Setting
             <% end %>
@@ -50,7 +51,7 @@
         </li>
       </ul>
     </div>
-  </nav>
-</div>
+  </div>
+</nav>
 
 

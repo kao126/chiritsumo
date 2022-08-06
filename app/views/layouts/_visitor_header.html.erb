@@ -1,39 +1,42 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="navbar-brand mr-0">
-    <%= link_to root_path do %>
-      <%= image_tag 'logo.png',size: '120x60' %>
-    <% end %>
-  </div>
+  <div class="container">
+    <div class="navbar-brand mr-0 mr-lg-auto">
+      <%= link_to root_path do %>
+        <%= image_tag 'logo.png',size: '120x60' %>
+      <% end %>
+    </div>
+
     <!--検索フォーム-->
     <%= render "public/searches/form" %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <!--ナビゲーション-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse text-center" id="navbarTogglerDemo02">
-
-    <ul class="navbar-nav mx-lg-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <%= link_to root_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-          <i class="fas fa-home"></i> Home
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to homes_about_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-          <i class="fas fa-link"></i> About
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to new_customer_registration_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-          <i class="fas fa-user-plus"></i> Sign Up
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to new_customer_session_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
-          <i class="fas fa-sign-in-alt"></i> Log In
-        <% end %>
-      </li>
-    </ul>
+    <div class="collapse navbar-collapse text-center col-lg-5" id="navbarTogglerDemo02">
+      <ul class="navbar-nav ml-lg-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <%= link_to root_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
+            <i class="fas fa-home"></i> Home
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to homes_about_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
+            <i class="fas fa-link"></i> About
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to new_customer_registration_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
+            <i class="fas fa-user-plus"></i> Sign Up
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to new_customer_session_path, class:"nav-link bg-light text-secondary rounded-lg" do %>
+            <i class="fas fa-sign-in-alt"></i> Log In
+          <% end %>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
