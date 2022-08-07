@@ -16,4 +16,93 @@
     <div class="text-center mb-3">参加ユーザー数：<%= @post_customer.count %> 人&emsp;/&emsp;投稿数：<%= @posts.count %> 件</div>
         <%= bar_chart @post_sum, max: 100, colors: ["#e5243b", "#DDA63A", "#4C9F38", "#C5192D", "#FF3A21", "#26BDE2", "#FCC30B", "#A21942", "#FD6925", "#DD1367", "#FD9D24", "#BF8B2E", "#3F7E44", "#0A97D9", "#56C02B", "#00689D", "#19486A"] %>
     <p class="text-right">※当サイト上の集計です</p>
+
+
+    <canvas id="myChart"></canvas>
+
+
 </div>
+<script>
+  const DATA_COUNT = 1;
+  const NUMBER_CFG = {count: DATA_COUNT, min: 0, max: 100};
+  const labels = ['Red', 'Orange', 'Yellow', 'Green', 'Blue'];
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: 'Dataset 1',
+        data: <%= @posts.count %>,
+        backgroundColor: [
+          "#e5243b",
+          "#DDA63A",
+          "#4C9F38",
+          "#C5192D",
+          "#FF3A21",
+          "#26BDE2",
+          "#FCC30B",
+          "#A21942",
+          "#FD6925",
+          "#DD1367",
+          "#FD9D24",
+          "#BF8B2E",
+          "#3F7E44",
+          "#0A97D9",
+          "#56C02B",
+          "#00689D",
+          "#19486A"
+        ]
+      }
+    ]
+  };
+
+  $(document).on('turbolinks:load', function() {
+    const ctx = document.getElementById("myChart");
+    const myChart = new Chart(ctx, {
+        type: 'polarArea',
+        data: data,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'Chart.js Polar Area Chart'
+            }
+          }
+        },
+      // type: 'line',
+      // data: {
+      //   labels: ['6日前', '5日前', '4日前', '3日前', '2日前', '1日前', '今日'],
+      //   datasets: [
+      //     {
+      //       label: '投稿した本の数',
+      //       data: [
+      //         <%#= @posts.count %>
+      //       ],
+      //       borderColor: "rgba(0,0,255,1)",
+      //       backgroundColor: "rgba(0,0,0,0)",
+      //       tension: 0.4
+      //     }
+      //   ],
+      // },
+      // options: {
+      //   title: {
+      //     display: true,
+      //     text: '7日間の投稿数の比較'
+      //   },
+      //   responsive: true,
+      //   scales: {
+      //     y:{
+      //       suggestedMin: 0,
+      //       suggestedMax: 10
+      //     },
+      //     x:{
+      //       stacked: true
+      //     },
+      //   },
+      // }
+    });
+  });
+</script>
