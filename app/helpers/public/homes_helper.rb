@@ -10,7 +10,7 @@ module Public::HomesHelper
       when 1 then
         image_tag 'category_1.png', size: '60x60'
       when 2 then
-        image_tag 'category_2.png', size: '50x50'
+        image_tag 'category_2.png', size: '60x60'
       when 3 then
         image_tag 'category_3.png', size: '60x60'
       when 4 then
@@ -44,4 +44,43 @@ module Public::HomesHelper
     end
   end
 
+  def chart_category_count
+    category_1 = Post.where(status: "share", category_id: 1).all
+    category_2 = Post.where(status: "share", category_id: 2).all
+    category_3 = Post.where(status: "share", category_id: 3).all
+    category_4 = Post.where(status: "share", category_id: 4).all
+    category_5 = Post.where(status: "share", category_id: 5).all
+    category_6 = Post.where(status: "share", category_id: 6).all
+    category_7 = Post.where(status: "share", category_id: 7).all
+    category_8 = Post.where(status: "share", category_id: 8).all
+    category_9 = Post.where(status: "share", category_id: 9).all
+    category_10 = Post.where(status: "share", category_id: 10).all
+    category_11 = Post.where(status: "share", category_id: 11).all
+    category_12 = Post.where(status: "share", category_id: 12).all
+    category_13 = Post.where(status: "share", category_id: 13).all
+    category_14 = Post.where(status: "share", category_id: 14).all
+    category_15 = Post.where(status: "share", category_id: 15).all
+    category_16 = Post.where(status: "share", category_id: 16).all
+    category_17 = Post.where(status: "share", category_id: 17).all
+
+    [
+      category_1.count,
+      category_2.count,
+      category_3.count,
+      category_4.count,
+      category_5.count,
+      category_6.count,
+      category_7.count,
+      category_8.count,
+      category_9.count,
+      category_10.count,
+      category_11.count,
+      category_12.count,
+      category_13.count,
+      category_14.count,
+      category_15.count,
+      category_16.count,
+      category_17.count
+      ]
+  end
 end
