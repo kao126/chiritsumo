@@ -36,6 +36,7 @@ class Customer < ApplicationRecord
   def self.guest
     find_or_create_by!(username: 'guest123', email: 'guest@example.com') do |guest|
       guest.password = SecureRandom.urlsafe_base64
+      guest.prefecture_code = '13'
     end
   end
 
@@ -60,7 +61,11 @@ class Customer < ApplicationRecord
   end
 
   def address
-    self.prefecture.name + self.address_city + self.address_street + "　" + self.address_building
+    if prefecture_code.present?
+      self.prefecture.name + self.address_city + self.address_street + "　" + self.address_building
+    else
+      self.prefecture_code + self.address_city + self.address_street + "　" + self.address_building
+    end
   end
 
 end
