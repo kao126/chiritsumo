@@ -21,10 +21,10 @@
   <!--他ユーザーには非表示-->
   <% if @customer == current_customer %>
   <nav>
-    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link color active" id="nav-post-tab" data-toggle="tab" href="#nav-post" role="tab" aria-controls="nav-post" aria-selected="true">投稿：<%= @posts.count %> 件</a>
-      <a class="nav-item nav-link color" id="nav-favorite-tab" data-toggle="tab" href="#nav-favorite" role="tab" aria-controls="nav-favorite" aria-selected="false"><i class="far fa-heart"></i> お気に入り</a>
-      <a class="nav-item nav-link color" id="nav-draft-tab" data-toggle="tab" href="#nav-draft" role="tab" aria-controls="nav-draft" aria-selected="false"><i class="fas fa-pen"></i> 下書き</a>
+    <div class="nav nav-tabs flex-column flex-sm-row text-center" id="nav-tab" role="tablist">
+      <a class="nav-item flex-sm-fill nav-link color active" id="nav-post-tab" data-toggle="tab" href="#nav-post" role="tab" aria-controls="nav-post" aria-selected="true">投稿：<%= @posts.count %> 件</a>
+      <a class="nav-item flex-sm-fill nav-link color" id="nav-favorite-tab" data-toggle="tab" href="#nav-favorite" role="tab" aria-controls="nav-favorite" aria-selected="false"><i class="far fa-heart"></i> お気に入り</a>
+      <a class="nav-item flex-sm-fill nav-link color" id="nav-draft-tab" data-toggle="tab" href="#nav-draft" role="tab" aria-controls="nav-draft" aria-selected="false"><i class="fas fa-pen"></i> 下書き</a>
     </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">

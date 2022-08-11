@@ -1,11 +1,11 @@
 <!--「いいね」した履歴があるか確認-->
 <% if favorite_posts.present? %>
-  <div class="row contents row-cols-3 mx-auto px-5">
+  <div class="row row-cols-3 px-lg-5 pt-3 pt-lg-5">
     <% favorite_posts.each do |favorite| %>
     <% post = Post.find_by(id: favorite.post_id) %>
       <%= link_to post_path(post) do %>
-        <div class="col text-center mb-4">
-          <%= image_tag post.get_image(300, 300), class: "image_border" %>
+        <div class="col text-center p-0 mb-lg-4">
+          <%= image_tag post.get_image(300, 300), class: "image_border img-fluid" %>
         </div>
       <% end %>
     <% end %>
