@@ -4,21 +4,23 @@
   </div>
   <div class="row px-1 py-1 category_color_<%= @post.category_id %>">
     <div class="col-lg-7 px-0 pr-lg-2">
-      <div class="d-flex pb-1">
+      <div class="row mx-0 pb-1">
         <% if @post.category.present? %>
-          <div class="mr-auto">
+          <div class="col-md-auto px-0">
             <!--カテゴリー画像 / Homesヘルパーに記載-->
             <%= post_category_image(@post.category_id) %>&emsp;
             <%= @post.category.name %>
           </div>
         <% end %>
         <!--いいね機能-->
-        <% if @post.status == "share" && customer_signed_in? %>
-          <div id="favorites_btn_<%= @post.id %>" class="align-self-end mr-3"><%= render 'public/favorites/btn', post: @post %></div>
-          <div id="favorites_counter_<%= @post.id %>" class="align-self-end mr-3"><%= render 'public/favorites/counter', post: @post %></div>
-        <% elsif admin_signed_in? %>
-          <%= render 'public/favorites/admin_favorites_btn', post: @post %>
-        <% end %>
+        <div class="col d-flex px-0">
+          <% if @post.status == "share" && customer_signed_in? %>
+            <div id="favorites_btn_<%= @post.id %>" class="align-self-end mr-3 ml-auto"><%= render 'public/favorites/btn', post: @post %></div>
+            <div id="favorites_counter_<%= @post.id %>" class="align-self-end mr-3"><%= render 'public/favorites/counter', post: @post %></div>
+          <% elsif admin_signed_in? %>
+            <%= render 'public/favorites/admin_favorites_btn', post: @post %>
+          <% end %>
+        </div>
       </div>
       <!--投稿画像-->
       <%= image_tag @post.get_image(705, 705), class: "image_border img-fluid" %>
@@ -53,7 +55,7 @@
       </div>
       <!--下書き状態のときは非表示-->
       <% if @post.status == "share" %>
-            <%= render "public/post_comments/form", post: @post, post_comment: @comment %>
+        <%= render "public/post_comments/form", post: @post, post_comment: @comment %>
       <% end %>
     </div>
   </div>
