@@ -10,7 +10,7 @@
     </div>
     <div class="col-lg-9 border">
       <div class="tab-content" id="v-pills-tabContent">
-        <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+        <div class="tab-pane fade show active px-3 py-lg-1 py-3" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
           <%= render "public/customers/edit", customer: @customer %>
         </div>
         <div class="tab-pane fade" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab">
@@ -23,3 +23,21 @@
     </div>
   </div>
 </div>
+<script>
+  $(".custom-file-input").on("change", function() {
+    var fileName = $(this).val().split("\\").pop();
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+  });
+
+  $(function(){
+   $("#input-text").on("keyup", function() {
+     let countNum = String($(this).val().length);
+     $("#input-counter").text(countNum + "/100");
+     if (countNum > 100) {
+      $("#input-counter").css("color","red");
+    } else {
+      $("#input-counter").css("color","black");
+    }
+   });
+  });
+</script>
