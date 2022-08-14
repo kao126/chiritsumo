@@ -1,20 +1,23 @@
-<table>
-  <% post.post_comments.each do |post_comment| %>
-  <tr>
-    <td>
-      <%= link_to customer_profile_path(post_comment.customer.username) do %>
-        <%= image_tag post_comment.customer.get_profile_image(40,40), class: "rounded-circle" %>
-        <strong class="color link ml-2 mr-3"><%= post_comment.customer.username %></strong>
+<% post.post_comments.each do |post_comment| %>
+<div class="row mx-0">
+  <div class="col-auto">
+    <%= link_to customer_profile_path(post_comment.customer.username), class: "color link" do %>
+      <%= image_tag post_comment.customer.get_profile_image(30,30), class: "rounded-circle" %>
+      <strong class="ml-2 mr-3"><%= post_comment.customer.username %></strong>
+    <% end %>
+  </div>
+  <div class="w-100 row mx-0 mb-3">
+    <div class="col-11 word-wrap">
+      <%= post_comment.comment %>
+    </div>
+
+    <% if post_comment.customer == current_customer || current_admin %>
+    <div class="col-1 px-0 align-self-center">
+      <%= link_to post_post_comment_path(post, post_comment), method: :delete, class: "ml-2 text-danger link", remote: true do %>
+        <i class="far fa-trash-alt"></i>
       <% end %>
-    </td>
-    <td><%= post_comment.comment %></td>
-    <td>
-      <% if post_comment.customer == current_customer || current_admin %>
-        <%= link_to post_post_comment_path(post, post_comment), method: :delete, class: "ml-2 text-danger link", remote: true do %>
-          <i class="far fa-trash-alt"></i>
-        <% end %>
-      <% end %>
-    </td>
-  </tr>
-  <% end %>
-</table>
+    </div>
+    <% end %>
+  </div>
+</div>
+<% end %>

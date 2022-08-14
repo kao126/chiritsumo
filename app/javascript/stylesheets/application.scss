@@ -91,6 +91,10 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
   color: #434343;
 }
 
+.word-wrap {
+  word-wrap: break-word;
+}
+
 // renderの際にフォーム崩れを防止
 .field_with_errors {
   display: contents;
