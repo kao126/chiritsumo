@@ -10,13 +10,13 @@
     </div>
     <div class="col-lg-9 border">
       <div class="tab-content" id="v-pills-tabContent">
-        <div class="tab-pane fade show active px-3 py-lg-1 py-3" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+        <div class="tab-pane fade show active px-3 py-lg-2 py-3" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
           <%= render "public/customers/edit", customer: @customer %>
         </div>
-        <div class="tab-pane fade" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab">
+        <div class="tab-pane fade px-3 py-lg-2 py-3" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab">
           <%= render "public/devise/registrations/password_form", customer: @customer, minimum_password_length: @minimum_password_length %>
         </div>
-        <div class="tab-pane fade" id="v-pills-unsubscribe" role="tabpanel" aria-labelledby="v-pills-unsubscribe-tab">
+        <div class="tab-pane fade px-3 py-5" id="v-pills-unsubscribe" role="tabpanel" aria-labelledby="v-pills-unsubscribe-tab">
           <%= render "public/customers/unsubscribe", customer: @customer %>
         </div>
       </div>
