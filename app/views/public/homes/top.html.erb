@@ -10,7 +10,7 @@
       </div>
     <% else %>
       <div class="row">
-        <%= link_to "ゲストログイン（閲覧用）", guest_session_path, method: :post, class: "mx-auto mb-3 link guest-session text-center" %>
+        <%= link_to "ゲストログイン（閲覧用）", guest_session_path, method: :post, class: "mx-md-auto mx-3 mb-3 link guest-session text-center" %>
       </div>
       <div id="paginate">
         <%= render "top", posts: @posts %>
