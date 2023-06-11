@@ -37,8 +37,7 @@
 
 
 ## サイト動画
-###　新規会員登録
-
+### 新規会員登録
 ![新規会員登録](https://github.com/kao126/chiritsumo/assets/76607249/09dccd88-7373-4853-bf01-9d03b791ace7)
 
 
