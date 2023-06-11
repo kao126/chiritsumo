@@ -43,6 +43,9 @@
 ### 投稿機能 / 投稿検索機能(ハッシュタグ検索) / いいね(ブックマーク)機能 / コメント機能
 ![投稿](https://github.com/kao126/chiritsumo/assets/76607249/f3d0b3c9-1a11-4e66-bc14-b30e8ce5ebe2)
 
+### 投稿のグラフ化（chartkick） / 投稿検索機能(キーワード検索)
+![グラフ](https://github.com/kao126/chiritsumo/assets/76607249/562cbd92-ddf3-41f1-837f-4b45bc93fc76)
+
 ## 設計書
 ### ER図
 ![ポートフォリオ制作_ER図](https://user-images.githubusercontent.com/76607249/178893738-c184a8e4-5805-4a79-8aa2-14151b1fbe0e.jpg)
